@@ -4,4 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    android:orientation="vertical"
+    android:textAlignment="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="272dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="immagine provvisoria"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/testoSala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Seleziona la sala"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/elencoSale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/testoTavolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="30dp"
+        android:text="Seleziona il tavolo"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/elencoTavoli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/testoCoperto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Insericsci il numero di persone"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/numClienti_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:ems="10"
+        android:hint="Clienti"
+        android:inputType="text"
+        android:singleLine="false" />
+
+    <TextView
+        android:id="@+id/twCoperto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="N.B. Il coperto è 2.50€ a persona"
+        android:textAlignment="center" />
+
+</LinearLayout>
