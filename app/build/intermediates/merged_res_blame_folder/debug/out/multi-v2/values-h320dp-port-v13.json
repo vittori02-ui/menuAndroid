@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\5959398d88d879c0c79eb4f223cd86f8\\transformed\\material-1.14.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "63",
+                        "endOffsets": "114"
+                    }
+                }
+            ]
+        }
+    ]
+}
