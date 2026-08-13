@@ -4,28 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     android:textAlignment="center"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="272dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="immagine provvisoria"
-        android:textAlignment="center" />
+        android:src="@drawable/messi1" />
 
     <TextView
         android:id="@+id/testoSala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Seleziona la sala"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -34,25 +28,27 @@
     <Spinner
         android:id="@+id/elencoSale"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
-        android:layout_marginTop="5dp" />
+        android:layout_height="50dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="5dp"
+        android:entries="@array/opzioniSala" />
 
     <TextView
         android:id="@+id/testoTavolo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="144dp"
         android:layout_marginTop="30dp"
         android:text="Seleziona il tavolo"
+        android:textAlignment="center"
         android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/elencoTavoli"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="144dp"
-        android:layout_marginTop="5dp" />
+        android:layout_height="50dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginTop="5dp"
+        android:entries="@array/opzioniTavolo" />
 
     <TextView
         android:id="@+id/testoCoperto"
@@ -65,19 +61,30 @@
 
     <EditText
         android:id="@+id/numClienti_txt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@null"
         android:ems="10"
         android:hint="Clienti"
-        android:inputType="text"
-        android:singleLine="false" />
+        android:inputType="number"
+        android:singleLine="false"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/buttonAvanti"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="115dp"
+        android:background="#7E6060"
+        android:backgroundTint="#7E6060"
+        android:text="Avanti"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/twCoperto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="N.B. Il coperto è 2.50€ a persona"
         android:textAlignment="center" />
 

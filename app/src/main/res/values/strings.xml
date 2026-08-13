@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">menu</string>
+    <string name="app_name">Menu</string>
+    <string-array name="opzioniSala">
+        <item>Sala1</item>
+        <item>Sala2</item>
+        <item>Terrazzo</item>
+    </string-array>
+    <string-array name="opzioniTavolo">
+        <item>Tavolo1</item>
+        <item>Tavolo2</item>
+        <item>Tavolo3</item>
+        <item>Tavolo4</item>
+        <item>Tavolo5</item>
+        <item>Tavolo6</item>
+        <item>Tavolo7</item>
+        <item>Tavolo8</item>
+        <item>Tavolo9</item>
+        <item>Tavolo10</item>
+    </string-array>
 </resources>
