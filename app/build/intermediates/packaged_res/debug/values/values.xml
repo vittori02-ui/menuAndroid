@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="opzioniSala">
+        <item>Sala1</item>
+        <item>Sala2</item>
+        <item>Terrazzo</item>
+    </string-array>
+    <string-array name="opzioniTavolo">
+        <item>Tavolo1</item>
+        <item>Tavolo2</item>
+        <item>Tavolo3</item>
+        <item>Tavolo4</item>
+        <item>Tavolo5</item>
+        <item>Tavolo6</item>
+        <item>Tavolo7</item>
+        <item>Tavolo8</item>
+        <item>Tavolo9</item>
+        <item>Tavolo10</item>
+    </string-array>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <string name="app_name">menu</string>
+    <string name="app_name">Menu</string>
     <style name="Base.Theme.Menu" parent="Theme.Material3.DayNight.NoActionBar">
         
         

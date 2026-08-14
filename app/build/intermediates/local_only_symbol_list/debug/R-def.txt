@@ -1,14 +1,31 @@
 R_DEF: Internal format may change without notice
 local
+array opzioniSala
+array opzioniTavolo
 color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable messi1
+id bIndietro
+id buttonAvanti
 id elencoSale
+id elencoTavoli
 id imageView
-id testoSale
+id imageView2
+id lb1
+id lb2
+id lb3
+id menuGraf
+id numClienti_txt
+id testoCoperto
+id testoSala
+id testoTavolo
 id textView
+id textView2
+id twCoperto
 layout activity_main
+layout menu_activity
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
