@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 act=new Intent(MainActivity.this,menuActivity.class);
                 act.putExtra("sala",elenSala.getSelectedItem().toString());
                 act.putExtra("tavolo",elenTavoli.getSelectedItem().toString());
+                if(clienti.getText().toString().equals(""))return;
                 act.putExtra("clienti",clienti.getText().toString());
                 startActivity(act);
             }
