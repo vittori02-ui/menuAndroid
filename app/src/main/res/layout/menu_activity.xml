@@ -36,12 +36,6 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/bIndietro"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="INDIETRO" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/menuGraf"
         android:layout_width="match_parent"
@@ -83,5 +77,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/bIndietro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INDIETRO" />
 
 </LinearLayout>

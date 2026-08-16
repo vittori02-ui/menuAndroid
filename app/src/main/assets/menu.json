@@ -1,0 +1,20 @@
+[
+  {
+    "nome":"Pizza Margherita",
+    "descizione":"Pomodoro,mozzarella,basilico",
+    "prezzo":6.5,
+    "immagine":"pizza"
+  },
+  {
+    "nome":"Pasta alla Norma",
+    "descizione":"Melenzane fritte,ricotta salata,pomodoro",
+    "prezzo":8.0,
+    "immagine":"pasta"
+  },
+  {
+    "nome":"Arancino",
+    "descrizione":"Riso,ragù,piselli,impanato e fritto",
+    "prezzi":3.0,
+    "immagine":"arancino"
+  }
+]
