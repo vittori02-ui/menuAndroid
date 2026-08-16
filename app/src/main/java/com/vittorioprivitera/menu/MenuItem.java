@@ -1,11 +1,11 @@
 package com.vittorioprivitera.menu;
-public class menuItem {
+public class MenuItem {
     private String nome;
     private String desc;
     private float prezzo;
     private int img;
 
-    public menuItem(String nome,String desc,double prezzo,int img)
+    public MenuItem(String nome, String desc, float prezzo, int img)
     {
         this.nome=nome;
         this.desc=desc;
