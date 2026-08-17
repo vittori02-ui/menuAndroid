@@ -1,5 +1,4 @@
-//13
-//1h 7
+//11:56
 package com.vittorioprivitera.menu;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 public class menuAdapter extends RecyclerView.Adapter<menuAdapter.MenuViewHolder>
 {
     private List<MenuItem> lista;
+    private OnItemClickListener listener;
+
+    public interface OnItemClickListener
+    {
+        void onItemClick(MenuItem item);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+            this.listener=listener;
+    }
     public menuAdapter(List<MenuItem> lista)
     {
         this.lista=lista;
@@ -45,6 +54,10 @@ public class menuAdapter extends RecyclerView.Adapter<menuAdapter.MenuViewHolder
         holder.desc.setText(item.getDesc());
         holder.prezzo.setText(item.getPrezzo()+" €");
         holder.img.setImageResource(item.getImg());
+        holder.itemView.setOnClickListener(v ->
+        {
+            if(listener!=null)listener.onItemClick(item);
+        });
     }
     @Override
     public int getItemCount()

@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-
 public class menuLoader {
     public static List<MenuItem> caricaMenu(Context context)
     {
@@ -18,11 +17,10 @@ public class menuLoader {
             byte[] buffer=new byte[size];
             is.read(buffer);
             is.close();
-
             String json=new String(buffer, StandardCharsets.UTF_8);
             JSONObject root=new JSONObject(json);
 
-            JSONArray array=root .getJSONArray("menu");
+            JSONArray array=root.getJSONArray("menu");
             for(int i=0;i<array.length();i++)
             {
                 JSONObject obj=array.getJSONObject(i);
