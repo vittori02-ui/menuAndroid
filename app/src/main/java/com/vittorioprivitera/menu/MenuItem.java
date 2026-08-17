@@ -28,4 +28,13 @@ public class MenuItem {
     public int getImg() {
         return img;
     }
+
+    public String completo()
+    {
+        StringBuilder sb=new StringBuilder("---PIATTO----"+"\n");
+        sb.append(this.nome+"\n");
+        sb.append(this.desc+"\n");
+        sb.append(this.prezzo+"\n");
+        return sb.toString();
+    }
 }

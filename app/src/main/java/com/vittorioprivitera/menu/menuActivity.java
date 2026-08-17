@@ -7,10 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Debug;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class menuActivity extends AppCompatActivity {
@@ -18,6 +22,7 @@ public class menuActivity extends AppCompatActivity {
     Button bIndietro;
     Intent act;
     CardView menu;
+    List<MenuItem> ordini=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +56,16 @@ public class menuActivity extends AppCompatActivity {
         menu.setLayoutManager(new LinearLayoutManager(this));
         List<MenuItem> menuList=menuLoader.caricaMenu(this);
         menuAdapter adap=new menuAdapter(menuList);
-        menu.setAdapter(adap);
         System.out.println("ci sono");
+        adap.setOnItemClickListener(item -> {
+            //Toast.makeText(menuActivity.this,"Hai cliccato "+item.getNome(),Toast.LENGTH_SHORT).show();
+            System.out.println("Hai cliccato "+item.getNome());
+            ordini.add(item);
+            for(int i=0;i<ordini.size();i++)
+            {
+                System.out.println(ordini.get(i).completo());
+            }
+        });
+        menu.setAdapter(adap);
     }
 }
