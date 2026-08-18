@@ -1,5 +1,7 @@
-//11:56
+//10:48
+//13:22
 package com.vittorioprivitera.menu;
+import android.preference.PreferenceActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,10 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.util.List;
+import java.util.Objects;
 import androidx.recyclerview.widget.RecyclerView;
-public class menuAdapter extends RecyclerView.Adapter<menuAdapter.MenuViewHolder>
+import androidx.recyclerview.widget.RecyclerView.ViewHolder;
+public class menuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
-    private List<MenuItem> lista;
+    private static final int tit=0;
+    private static final int piatto=1;
+    private List<Object> lista;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener
@@ -21,15 +27,33 @@ public class menuAdapter extends RecyclerView.Adapter<menuAdapter.MenuViewHolder
     {
             this.listener=listener;
     }
-    public menuAdapter(List<MenuItem> lista)
+    public menuAdapter(List<Object> lista)
     {
         this.lista=lista;
     }
-    public static class MenuViewHolder extends RecyclerView.ViewHolder
+
+    @Override
+    public int getItemViewType(int pos)
+    {
+        if(lista.get(pos) instanceof titolo) return tit;
+        else return piatto;
+    }
+
+    public static class titVisibile extends RecyclerView.ViewHolder
+    {
+        TextView titolo;
+        public titVisibile(@NonNull View itemView)
+        {
+            super(itemView);
+            titolo=itemView.findViewById(R.id.titolo);
+        }
+    }
+
+    public  static class vediMenu extends RecyclerView.ViewHolder
     {
         ImageView img;
         TextView nome,desc,prezzo;
-        public MenuViewHolder(@NonNull View itemView)
+        public vediMenu(@NonNull View itemView)
         {
             super(itemView);
             img=itemView.findViewById(R.id.img);
@@ -38,26 +62,44 @@ public class menuAdapter extends RecyclerView.Adapter<menuAdapter.MenuViewHolder
             prezzo=itemView.findViewById(R.id.prezzo);
         }
     }
-    @NonNull
     @Override
-    public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent,int position)
+    @NonNull
+    public RecyclerView.ViewHolder onCreateViewHolder (@NonNull ViewGroup parent,int viewType)
     {
-        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
-        return new MenuViewHolder(view);
+        if(viewType==tit)
+        {
+            View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.titolo_graf,parent,false);
+            return new titVisibile(view);
+        }
+        else
+        {
+            View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
+            return new vediMenu(view);
+        }
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenuViewHolder holder,int position)
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder,int pos)
     {
-        MenuItem item=lista.get(position);
-        holder.nome.setText(item.getNome());
-        holder.desc.setText(item.getDesc());
-        holder.prezzo.setText(item.getPrezzo()+" €");
-        holder.img.setImageResource(item.getImg());
-        holder.itemView.setOnClickListener(v ->
+        Object ogg=lista.get(pos);
+        if(holder instanceof titVisibile)
         {
-            if(listener!=null)listener.onItemClick(item);
-        });
+            titolo tit=(titolo)ogg;
+            ((titVisibile)holder).titolo.setText(tit.getTitolo());
+        }
+        else if(holder instanceof vediMenu)
+        {
+            MenuItem item=(MenuItem)ogg;
+            vediMenu h=(vediMenu)holder;
+            h.nome.setText(item.getNome());
+            h.desc.setText(item.getDesc());
+            h.prezzo.setText(item.getPrezzo()+" €");
+            h.img.setImageResource(item.getImg());
+            h.itemView.setOnClickListener(v ->
+            {
+                if(listener!=null)listener.onItemClick(item);
+            });
+        }
     }
     @Override
     public int getItemCount()
