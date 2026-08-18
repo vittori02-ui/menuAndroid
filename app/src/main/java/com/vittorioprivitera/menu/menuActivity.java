@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class menuActivity extends AppCompatActivity {
     TextView lb1,lb2,lb3,desc;
@@ -54,7 +55,7 @@ public class menuActivity extends AppCompatActivity {
         });*/
         RecyclerView menu=findViewById(R.id.menu);
         menu.setLayoutManager(new LinearLayoutManager(this));
-        List<MenuItem> menuList=menuLoader.caricaMenu(this);
+        List<Object> menuList=menuLoader.caricaMenu(this);
         menuAdapter adap=new menuAdapter(menuList);
         System.out.println("ci sono");
         adap.setOnItemClickListener(item -> {

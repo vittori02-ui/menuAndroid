@@ -1,21 +1,66 @@
 {
   "menu": [
     {
-      "nome": "Pizza Margherita",
-      "descrizione": "Pomodoro,mozzarella,basilico",
-      "prezzo": 6.5,
+      "categoria": "Antipasti",
+      "nome": "Caprese",
+      "descrizione": "Mozzarella di bufala, pomodoro e basilico fresco",
+      "prezzo": 5.5,
       "immagine": "messi1"
     },
     {
+      "categoria": "Antipasti",
+      "nome": "Bruschette miste",
+      "descrizione": "Pomodoro fresco,olive e crema di funghi",
+      "prezzo": 4.0,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Antipasti",
+      "nome": "Tagliere di salumi",
+      "descrizione": "Prosciutto crudo, salame, formaggi misti",
+      "prezzo": 7.0,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Primi",
       "nome": "Pasta alla Norma",
       "descrizione": "Melenzane fritte,ricotta salata,pomodoro",
       "prezzo": 8.0,
       "immagine": "messi1"
     },
     {
-      "nome": "Arancino",
-      "descrizione": "Riso,ragù,piselli,impanato e fritto",
-      "prezzo": 3.0,
+      "categoria": "Primi",
+      "nome": "Risotto ai funghi",
+      "descrizione": "Riso carnaroli, funghi porcini e parmigiano",
+      "prezzo":9.5,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Primi",
+      "nome": "Spaghetti alle vongole",
+      "descrizione": "Vongole veraci, aglio, prezzemolo e vino bianco",
+      "prezzo": 10.0,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Secondi",
+      "nome": "Cotoletta alla milanese",
+      "descrizione": "Vitello impanato e fritto e limone",
+      "prezzo": 12.0,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Secondi",
+      "nome":"Tagliata di manzo",
+      "descrizione": "Manzo tagliato, rucola e scaglie di grana",
+      "prezzo":13.0,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Secondi",
+      "nome": "Filetto di branzino",
+      "descrizione": "Branzino al forno,patate e olive taggiasche",
+      "prezzo": 13.0,
       "immagine": "messi1"
     }
   ]
