@@ -21,8 +21,10 @@ public class cucinActivity extends AppCompatActivity {
         ordini=findViewById(R.id.ordini);
         indietro=findViewById(R.id.Bindietro);
         ordini.setLayoutManager(new LinearLayoutManager(this));
-        ArrayList<Object> ordiniTot=(ArrayList<Object>) getIntent().getSerializableExtra("ordini");
-        menuAdapter menu= new menuAdapter(ordiniTot);
+        //ArrayList<Object> ordiniTot=(ArrayList<Object>) getIntent().getSerializableExtra("ordini");
+        List<MenuItem> ordiniTot=ordiniTutti.getOrdini();
+        List<Object> ordiniConv=new ArrayList<>(ordiniTot);
+        menuAdapter menu= new menuAdapter(ordiniConv);
         ordini.setAdapter(menu);
         indietro.setOnClickListener(new View.OnClickListener() {
             @Override
