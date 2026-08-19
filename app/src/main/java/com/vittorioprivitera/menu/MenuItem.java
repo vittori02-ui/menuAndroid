@@ -1,5 +1,6 @@
 package com.vittorioprivitera.menu;
-public class MenuItem {
+import java.io.Serializable;
+public class MenuItem implements Serializable {
     private String nome;
     private String desc;
     private float prezzo;
