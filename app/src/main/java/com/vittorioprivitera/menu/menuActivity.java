@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Debug;
 import android.view.Menu;
-import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
@@ -25,7 +24,7 @@ public class menuActivity extends AppCompatActivity {
     Button bIndietro,bCucina;
     Intent act;
     CardView menu;
-    List<MenuItem> ordini=new ArrayList<>();
+    /*  sbagliato approccio perche è ordini non menulist
     private List<Object> prendiLista()
     {
         try
@@ -46,7 +45,7 @@ public class menuActivity extends AppCompatActivity {
             System.out.println("siamo nel catch");
             return menuList;
         }
-    }
+    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,16 +78,17 @@ public class menuActivity extends AppCompatActivity {
         });*/
         RecyclerView menu=findViewById(R.id.menu);
         menu.setLayoutManager(new LinearLayoutManager(this));
-        List<Object>menuList
-        menuAdapter adap=new menuAdapter(prendiLista());
+        List<Object>menuList=menuLoader.caricaMenu(this);
+        menuAdapter adap=new menuAdapter(menuList);
         System.out.println("ci sono");
         adap.setOnItemClickListener(item -> {
             //Toast.makeText(menuActivity.this,"Hai cliccato "+item.getNome(),Toast.LENGTH_SHORT).show();
             System.out.println("Hai cliccato "+item.getNome());
-            ordini.add(item);
-            for(int i=0;i<ordini.size();i++)
+            ordiniTutti.addElem(item);
+            System.out.println("Dimensione"+ordiniTutti.getOrdini().size());
+            for(int i=0;i<ordiniTutti.getOrdini().size();i++)
             {
-                System.out.println(ordini.get(i).completo());
+                System.out.println(ordiniTutti.getOrdini().get(i).completo());
             }
         });
         menu.setAdapter(adap);
@@ -96,9 +96,9 @@ public class menuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 act=new Intent(menuActivity.this,cucinActivity.class);
-                act.putExtra("ordini",(Serializable) ordini);
                 startActivity(act);
             }
         });
+        //ciao
     }
 }
