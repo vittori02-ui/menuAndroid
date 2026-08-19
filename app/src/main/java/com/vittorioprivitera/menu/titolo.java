@@ -1,6 +1,6 @@
 package com.vittorioprivitera.menu;
-
-public class titolo {
+import java.io.Serializable;
+public class titolo implements Serializable {
     private String titolo;
     public titolo(String titolo)
     {

@@ -8,22 +8,45 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.os.Debug;
 import android.view.Menu;
+import android.view.SoundEffectConstants;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class menuActivity extends AppCompatActivity {
     TextView lb1,lb2,lb3,desc;
-    Button bIndietro;
+    Button bIndietro,bCucina;
     Intent act;
     CardView menu;
     List<MenuItem> ordini=new ArrayList<>();
+    private List<Object> prendiLista()
+    {
+        try
+        {
+            List<Object>menuList=(List<Object>)getIntent().getSerializableExtra("ordini");
+            if(menuList==null)
+            {
+                List<Object> menuList2 = menuLoader.caricaMenu(this);
+                System.out.println("siamo nell'if");
+                return menuList2;
+            }
+            System.out.println("abbiamo passato il try");
+            return menuList;
+        }
+        catch(Exception e)
+        {
+            List<Object> menuList = menuLoader.caricaMenu(this);
+            System.out.println("siamo nel catch");
+            return menuList;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +55,7 @@ public class menuActivity extends AppCompatActivity {
         lb2=findViewById(R.id.lb2);
         lb3=findViewById(R.id.lb3);
         bIndietro=findViewById(R.id.bIndietro);
+        bCucina=findViewById(R.id.cucina);
         //menu=findViewById(R.id.menuGraf);
         //desc=findViewById(R.id.desTxt);
         String sala=getIntent().getStringExtra("sala");
@@ -55,8 +79,8 @@ public class menuActivity extends AppCompatActivity {
         });*/
         RecyclerView menu=findViewById(R.id.menu);
         menu.setLayoutManager(new LinearLayoutManager(this));
-        List<Object> menuList=menuLoader.caricaMenu(this);
-        menuAdapter adap=new menuAdapter(menuList);
+        List<Object>menuList
+        menuAdapter adap=new menuAdapter(prendiLista());
         System.out.println("ci sono");
         adap.setOnItemClickListener(item -> {
             //Toast.makeText(menuActivity.this,"Hai cliccato "+item.getNome(),Toast.LENGTH_SHORT).show();
@@ -68,5 +92,13 @@ public class menuActivity extends AppCompatActivity {
             }
         });
         menu.setAdapter(adap);
+        bCucina.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                act=new Intent(menuActivity.this,cucinActivity.class);
+                act.putExtra("ordini",(Serializable) ordini);
+                startActivity(act);
+            }
+        });
     }
 }
