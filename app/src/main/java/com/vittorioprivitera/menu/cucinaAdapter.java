@@ -19,12 +19,13 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
     }
     public static class OrdineViewHolder extends RecyclerView.ViewHolder
     {
-        TextView nome,prezzo;
+        TextView nome,prezzo,desc;
         public OrdineViewHolder(@NonNull View itemView)
         {
             super(itemView);
             nome=itemView.findViewById(R.id.nome);
             prezzo=itemView.findViewById(R.id.prezzo);
+            desc=itemView.findViewById(R.id.descrizione);
         }
     }
 
@@ -37,11 +38,12 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
     }
 
     @Override
-    public void OnBindViewHolder(@NonNull OrdineViewHolder holder,int pos)
+    public void onBindViewHolder(@NonNull OrdineViewHolder holder,int pos)
     {
         MenuItem item=lista.get(pos);
         holder.nome.setText(item.getNome());
         holder.prezzo.setText(item.getPrezzo()+" €");
+        holder.desc.setText(item.getDesc());
     }
 
     @Override
@@ -54,5 +56,6 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
     {
         Collections.swap(lista,daPos,inPos);
         notifyItemMoved(daPos,inPos);
+        System.out.println("spostato");
     }
 }
