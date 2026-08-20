@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 act.putExtra("sala",elenSala.getSelectedItem().toString());
                 act.putExtra("tavolo",elenTavoli.getSelectedItem().toString());
                 if(clienti.getText().toString().equals(""))return;
-                act.putExtra("clienti",clienti.getText().toString());
+                act.putExtra("clienti",Integer.parseInt(clienti.getText().toString()));
                 startActivity(act);
             }
         });

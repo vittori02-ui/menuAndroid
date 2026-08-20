@@ -59,7 +59,7 @@ public class menuActivity extends AppCompatActivity {
         //desc=findViewById(R.id.desTxt);
         String sala=getIntent().getStringExtra("sala");
         String tav=getIntent().getStringExtra("tavolo");
-        int cli=parseInt(getIntent().getStringExtra("clienti"));
+        int cli=getIntent().getIntExtra("clienti",0);
         lb1.setText(sala);
         lb2.setText(tav);
         lb3.setText("Clienti: "+cli);
@@ -96,6 +96,9 @@ public class menuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 act=new Intent(menuActivity.this,cucinActivity.class);
+                act.putExtra("sala",sala);
+                act.putExtra("tavolo",tav);
+                act.putExtra("clienti",cli);
                 startActivity(act);
             }
         });
