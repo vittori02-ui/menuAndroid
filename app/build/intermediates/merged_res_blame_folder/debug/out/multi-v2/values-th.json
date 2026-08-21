@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-th/values-th.xml",
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-31:/values-th/values-th.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\a51ab38d388b4b5c669ff9e2972661d0\\transformed\\core-1.16.0\\res\\values-th\\values-th.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,151,254,352,450,553,658,770",
-                        "endColumns": "95,102,97,97,102,104,111,100",
-                        "endOffsets": "146,249,347,445,548,653,765,866"
-                    },
-                    "to": {
-                        "startLines": "43,44,45,46,47,48,49,142",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "3728,3824,3927,4025,4123,4226,4331,11720",
-                        "endColumns": "95,102,97,97,102,104,111,100",
-                        "endOffsets": "3819,3922,4020,4118,4221,4326,4438,11816"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\5959398d88d879c0c79eb4f223cd86f8\\transformed\\material-1.14.0\\res\\values-th\\values-th.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "335,440,533,641,726,828,938,1016,1093,1184,1277,1368,1462,1562,1655,1750,1844,1935,2026,2107,2210,2308,2406,2509,2615,2716,2869,11405",
                         "endColumns": "104,92,107,84,101,109,77,76,90,92,90,93,99,92,94,93,90,90,80,102,97,97,102,105,100,152,94,81",
                         "endOffsets": "435,528,636,721,823,933,1011,1088,1179,1272,1363,1457,1557,1650,1745,1839,1930,2021,2102,2205,2303,2401,2504,2610,2711,2864,2959,11482"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\0932a2e3bbdaffd825a393954af9bf47\\transformed\\core-1.13.1\\res\\values-th\\values-th.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,151,254,352,450,553,658,770",
+                        "endColumns": "95,102,97,97,102,104,111,100",
+                        "endOffsets": "146,249,347,445,548,653,765,866"
+                    },
+                    "to": {
+                        "startLines": "43,44,45,46,47,48,49,142",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3728,3824,3927,4025,4123,4226,4331,11720",
+                        "endColumns": "95,102,97,97,102,104,111,100",
+                        "endOffsets": "3819,3922,4020,4118,4221,4326,4438,11816"
                     }
                 }
             ]

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-v17/values-v17.xml",
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-31:/values-v17/values-v17.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\7189bdbd9a1e21eadbbe1148ba24308f\\transformed\\appcompat-1.7.1\\res\\values-v17\\values-v17.xml",

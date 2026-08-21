@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-land/values-land.xml",
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-31:/values-land/values-land.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\7189bdbd9a1e21eadbbe1148ba24308f\\transformed\\appcompat-1.7.1\\res\\values-land\\values-land.xml",

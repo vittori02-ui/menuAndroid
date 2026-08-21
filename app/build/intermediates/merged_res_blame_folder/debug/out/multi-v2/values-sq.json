@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-sq/values-sq.xml",
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-31:/values-sq/values-sq.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\a51ab38d388b4b5c669ff9e2972661d0\\transformed\\core-1.16.0\\res\\values-sq\\values-sq.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,154,256,354,451,559,670,792",
-                        "endColumns": "98,101,97,96,107,110,121,100",
-                        "endOffsets": "149,251,349,446,554,665,787,888"
-                    },
-                    "to": {
-                        "startLines": "43,44,45,46,47,48,49,142",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "3807,3906,4008,4106,4203,4311,4422,12048",
-                        "endColumns": "98,101,97,96,107,110,121,100",
-                        "endOffsets": "3901,4003,4101,4198,4306,4417,4539,12144"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\5959398d88d879c0c79eb4f223cd86f8\\transformed\\material-1.14.0\\res\\values-sq\\values-sq.xml",
                     "from": {
@@ -54,6 +37,23 @@
                         "startOffsets": "317,431,531,643,729,835,958,1040,1118,1209,1302,1397,1491,1592,1685,1780,1877,1968,2061,2142,2248,2352,2450,2556,2660,2762,2916,11729",
                         "endColumns": "113,99,111,85,105,122,81,77,90,92,94,93,100,92,94,96,90,92,80,105,103,97,105,103,101,153,96,81",
                         "endOffsets": "426,526,638,724,830,953,1035,1113,1204,1297,1392,1486,1587,1680,1775,1872,1963,2056,2137,2243,2347,2445,2551,2655,2757,2911,3008,11806"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\0932a2e3bbdaffd825a393954af9bf47\\transformed\\core-1.13.1\\res\\values-sq\\values-sq.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,154,256,354,451,559,670,792",
+                        "endColumns": "98,101,97,96,107,110,121,100",
+                        "endOffsets": "149,251,349,446,554,665,787,888"
+                    },
+                    "to": {
+                        "startLines": "43,44,45,46,47,48,49,142",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3807,3906,4008,4106,4203,4311,4422,12048",
+                        "endColumns": "98,101,97,96,107,110,121,100",
+                        "endOffsets": "3901,4003,4101,4198,4306,4417,4539,12144"
                     }
                 }
             ]

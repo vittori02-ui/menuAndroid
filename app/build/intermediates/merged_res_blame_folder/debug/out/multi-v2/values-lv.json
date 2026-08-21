@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-33:/values-lv/values-lv.xml",
+            "outputFile": "com.vittorioprivitera.menu.app-mergeDebugResources-31:/values-lv/values-lv.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\5959398d88d879c0c79eb4f223cd86f8\\transformed\\material-1.14.0\\res\\values-lv\\values-lv.xml",
@@ -40,7 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\a51ab38d388b4b5c669ff9e2972661d0\\transformed\\core-1.16.0\\res\\values-lv\\values-lv.xml",
+                    "source": "C:\\Users\\Vittorio Privitera\\.gradle\\caches\\transforms-3\\0932a2e3bbdaffd825a393954af9bf47\\transformed\\core-1.13.1\\res\\values-lv\\values-lv.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
