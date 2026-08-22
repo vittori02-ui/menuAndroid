@@ -1,20 +1,50 @@
 package com.vittorioprivitera.menu;
-import android.icu.util.Output;
 import android.os.Looper;
-
+import android.os.Handler;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.logging.Handler;
+import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbzt3hWjH2RC-PrTUdbHm-P2KsOLtA7skENr5sK15vobxQ81NrqSt6A5JxotMgciq6h0/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbwpBM-sAxghUc5vtqiYZXx06EVZiOwJ6JzlSBfjrUFBikErSuPfExHSx4azg5UakknZ/exec";
     public interface OnInviatoListener
     {
         void onSuccesso();
         void onErrore(String messaggio);
     }
+    public interface OnTuttiInviatiListener
+    {
+        void onCompletato();
+    }
+
+    public static void invialista(String sala, String tavolo, List<MenuItem> lista,OnTuttiInviatiListener listenerFinale)
+    {
+        inviaUno(sala,tavolo,lista,0,listenerFinale);
+    }
+
+    private static void inviaUno(String sala,String tavolo,List<MenuItem>lista,int indice,OnTuttiInviatiListener listenerFinale)
+    {
+        if(indice>=lista.size())
+        {
+            listenerFinale.onCompletato();
+            return;
+        }
+        MenuItem item=lista.get(indice);
+        invia(sala, tavolo, item, new OnInviatoListener() {
+            @Override
+            public void onSuccesso() {
+                inviaUno(sala,tavolo,lista,indice+1,listenerFinale);
+            }
+
+            @Override
+            public void onErrore(String messaggio) {
+                inviaUno(sala,tavolo,lista,indice+1,listenerFinale);
+            }
+        });
+    }
+
     public static void invia(String sala,String tavolo,MenuItem item,OnInviatoListener listener)
     {
         new Thread(()->
@@ -24,7 +54,7 @@ public class inviaOrdini {
                 URL url=new URL(urlScript);
                 HttpURLConnection conn=(HttpURLConnection)url.openConnection();
                 conn.setRequestMethod("POST");
-                conn.setRequestMethod("Content-Type","application/json; utf-8");
+                conn.setRequestProperty("Content-Type","application/json; utf-8");
                 conn.setDoInput(true);
                 String json="{"
                         + "\"sala\":\"" + sala + "\","
@@ -32,12 +62,12 @@ public class inviaOrdini {
                         + "\"piatto\":\"" + item.getNome() + "\","
                         + "\"prezzo\":\"" + item.getPrezzo() + "\""
                         + "}";
-                OutputStram os=conn.getOutputStream();
+                OutputStream os=conn.getOutputStream();
                 os.write(json.getBytes(StandardCharsets.UTF_8));
-                os.close;
+                os.close();
                 int codiceRisp= conn.getResponseCode();
 
-                new Handler(Looper.getMainLooper().post())->
+                new Handler(Looper.getMainLooper()).post(()->
                 {
                     if(codiceRisp==200)listener.onSuccesso();
                     else listener.onErrore("codice risposta"+codiceRisp);
@@ -45,8 +75,8 @@ public class inviaOrdini {
             }
             catch (Exception e)
             {
-                new Handler(Looper.getMainLooper()).post(()->
-                    listener.onErrore(e.getMessage());
+                new Handler(Looper.getMainLooper()).post(() ->
+                    listener.onErrore(e.getMessage())
                 );
             }
         }).start();
