@@ -1,15 +1,17 @@
 //15:36
 package com.vittorioprivitera.menu;
 import static java.lang.Integer.parseInt;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,10 +53,30 @@ public class cucinActivity extends AppCompatActivity {
         invia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                for(int i=0;i<ordiniTutti.getOrdini().size();i++)
+                String sala=getIntent().getStringExtra("sala");
+                String tav=getIntent().getStringExtra("tavolo");
+                inviaOrdini.invialista(sala,tav,ordiniTutti.getOrdini(),()->
                 {
-                    System.out.println(ordiniTutti.getOrdini().get(i).completo());
-                }
+                   Toast.makeText(cucinActivity.this,"tutti gli ordini inviati",Toast.LENGTH_SHORT).show();
+                   ordiniTutti.svuota();
+                });
+
+                /*for(MenuItem item:ordiniTutti.getOrdini())
+                {
+                    inviaOrdini.invia(sala,tav,item,new inviaOrdini.OnInviatoListener()
+                    {
+                        @Override
+                        public void onSuccesso()
+                        {
+                            Toast.makeText(cucinActivity.this,"ordine inviato: "+item.getNome(),Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onErrore(String mes)
+                        {
+                            Toast.makeText(cucinActivity.this,"errore: "+mes,Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }*/
             }
         });
     }
