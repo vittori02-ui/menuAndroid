@@ -5,6 +5,8 @@ public class MenuItem implements Serializable {
     private String desc;
     private float prezzo;
     private int img;
+    private int id;
+    private boolean pronto=false;
 
     public MenuItem(String nome, String desc, float prezzo, int img)
     {
@@ -30,12 +32,17 @@ public class MenuItem implements Serializable {
         return img;
     }
 
+    public int getId(){return id;}
+    public boolean getPronto(){return pronto;}
+
     public String completo()
     {
         StringBuilder sb=new StringBuilder("---PIATTO----"+"\n");
         sb.append(this.nome+"\n");
         sb.append(this.desc+"\n");
         sb.append(this.prezzo+"\n");
+        sb.append(id+"\n");
+        sb.append(pronto+"\n");
         return sb.toString();
     }
 }
