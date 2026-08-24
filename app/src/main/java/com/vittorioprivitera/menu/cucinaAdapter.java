@@ -1,12 +1,11 @@
 package com.vittorioprivitera.menu;
+import android.graphics.Color;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineViewHolder>
@@ -44,6 +43,18 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
         holder.nome.setText(item.getNome());
         holder.prezzo.setText(item.getPrezzo()+" €");
         holder.desc.setText(item.getDesc());
+        if(item.getPronto())holder.itemView.setBackgroundColor(Color.parseColor("#C8E6C9"));
+        else holder.itemView.setBackgroundColor(Color.parseColor("#FFECB3"));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos=holder.getBindingAdapterPosition();
+                if(pos==RecyclerView.NO_POSITION)return;
+                MenuItem itemClick=lista.get(pos);
+                boolean stato=!itemClick.getPronto();
+                notifyItemChanged(pos);
+            }
+        });
     }
 
     @Override
