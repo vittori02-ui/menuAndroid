@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbzyWCRtkwothF_pUU7jwby1hsxp_UfSKc9dc9fYAmgh0gdUOQmdZikRcqFUGRgx_FpC/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbwtXgjlMSf3rOzSN1v8fsax4urrPiGzWIuQMoI45R1CQAnkrChpmKk7ZalZ3dIa4MHm/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -28,7 +28,7 @@ public class inviaOrdini {
                 conn.setRequestProperty("Content-Type","application/json; utf-8");
                 conn.setDoOutput(true);
                 conn.setInstanceFollowRedirects(false);
-                String json="{\"azione\":\"nuovoId\"}";
+                String json="{\"azione\":\"nuovoOrdine\"}";
                 OutputStream os=conn.getOutputStream();
                 os.write(json.getBytes(StandardCharsets.UTF_8));
                 os.close();
@@ -43,7 +43,12 @@ public class inviaOrdini {
                     BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     String risp=read.readLine();
                     read.close();
-
+                    if(risp==null||risp.trim().isEmpty())
+                    {
+                        new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta vuota dal server"));
+                        System.out.println("non andata a buon fine");
+                        return;
+                    }
                     int id=Integer.parseInt(risp.trim());
                     new Handler(Looper.getMainLooper()).post(()->listener.onId(id));
                 }
@@ -52,12 +57,19 @@ public class inviaOrdini {
                     BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     String risposta=read.readLine();
                     read.close();
+                    if(risposta==null||risposta.trim().isEmpty())
+                    {
+                        new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta guota dal server"));
+                        System.out.println("non andata a buon fine");
+                        return;
+                    }
                     int id=Integer.parseInt(risposta.trim());
                     new Handler(Looper.getMainLooper()).post(()-> listener.onId(id));
                 }
             }
             catch (Exception e)
             {
+                e.printStackTrace();
                 new Handler(Looper.getMainLooper()).post(()-> listener.onErrore(e.getMessage()));
             }
         }).start();
@@ -111,6 +123,7 @@ public class inviaOrdini {
                 conn.setRequestProperty("Content-Type","application/json; utf-8");
                 conn.setDoInput(true);
                 String json="{"
+                        +"\"azione\":\"invioPiatto\","
                         +"\"id\":\""+item.getId()+"\","
                         + "\"sala\":\"" + sala + "\","
                         + "\"tavolo\":\"" + tavolo + "\","
