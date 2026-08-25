@@ -34,6 +34,10 @@ public class MenuItem implements Serializable {
 
     public int getId(){return id;}
     public boolean getPronto(){return pronto;}
+    public void setId(int id)
+    {
+        this.id=id;
+    }
 
     public String completo()
     {

@@ -1,32 +1,66 @@
 package com.vittorioprivitera.menu;
-import android.content.Context;
 import android.os.Looper;
 import android.os.Handler;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbyPOosMZ2jemoWcrlZwk4TdXzRbkB-7pw3sKp1JbJgbfmubKIbovIxfJw5fXq0DUHhj/exec";
 
-    public static class gestoreId
+public class inviaOrdini {
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbzyWCRtkwothF_pUU7jwby1hsxp_UfSKc9dc9fYAmgh0gdUOQmdZikRcqFUGRgx_FpC/exec";
+    public interface OnIdRicevutoListener
     {
-        private static final String ord="ordini";
-        public static int nuovoId(android.content.Context ctx)
+        void onId(int id);
+        void onErrore(String mess);
+    }
+    public static void richiediId(OnIdRicevutoListener listener)
+    {
+        new Thread(()->
         {
-            android.content.SharedPreferences pred=ctx.getSharedPreferences(ord, Context.MODE_PRIVATE);
-            String oggi=new java.text.SimpleDateFormat("yyyy-MM-dd",java.util.Locale.ITALY).format(new java.util.Date());
-            String ultimaData=pred.getString("data","");
-            int cont=pred.getInt("contatore",0);
-            if(!oggi.equals(ultimaData))cont=0;
-            cont++;
-            pred.edit()
-                    .putString("data",oggi)
-                    .putInt("contatore",cont)
-                    .apply();
-            return cont;
-        }
+            try
+            {
+                URL url=new URL(urlScript);
+                HttpURLConnection conn=(HttpURLConnection)url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type","application/json; utf-8");
+                conn.setDoOutput(true);
+                conn.setInstanceFollowRedirects(false);
+                String json="{\"azione\":\"nuovoId\"}";
+                OutputStream os=conn.getOutputStream();
+                os.write(json.getBytes(StandardCharsets.UTF_8));
+                os.close();
+                int codice=conn.getResponseCode();
+
+                if(codice==HttpURLConnection.HTTP_MOVED_TEMP||codice==HttpURLConnection.HTTP_MOVED_PERM)
+                {
+                    String url2=conn.getHeaderField("Location");
+                    URL urlNuovo=new URL(url2);
+                    HttpURLConnection conn2=(HttpURLConnection)urlNuovo.openConnection();
+                    conn2.setRequestMethod("GET");
+                    BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String risp=read.readLine();
+                    read.close();
+
+                    int id=Integer.parseInt(risp.trim());
+                    new Handler(Looper.getMainLooper()).post(()->listener.onId(id));
+                }
+                else
+                {
+                    BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String risposta=read.readLine();
+                    read.close();
+                    int id=Integer.parseInt(risposta.trim());
+                    new Handler(Looper.getMainLooper()).post(()-> listener.onId(id));
+                }
+            }
+            catch (Exception e)
+            {
+                new Handler(Looper.getMainLooper()).post(()-> listener.onErrore(e.getMessage()));
+            }
+        }).start();
     }
 
     public interface OnInviatoListener
@@ -81,7 +115,7 @@ public class inviaOrdini {
                         + "\"sala\":\"" + sala + "\","
                         + "\"tavolo\":\"" + tavolo + "\","
                         + "\"piatto\":\"" + item.getNome() + "\","
-                        + "\"prezzo\":\"" + item.getPrezzo() + "\""
+                        + "\"prezzo\":\"" + item.getPrezzo() + "\","
                         +"\"pronto\":\""+item.getPronto()+"\""
                         + "}";
                 OutputStream os=conn.getOutputStream();
