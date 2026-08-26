@@ -10,13 +10,24 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbwtXgjlMSf3rOzSN1v8fsax4urrPiGzWIuQMoI45R1CQAnkrChpmKk7ZalZ3dIa4MHm/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbyZKPo3hHHVYs2U_VdUhgb90nNM-WoFWyLTHup6qGvsjk8C0l08Pnc2CEoVy3rz1_GN/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
         void onErrore(String mess);
     }
-    public static void richiediId(OnIdRicevutoListener listener)
+    public interface OnStatoRicevutoListener
+    {
+        void onStato(String testo);
+        void onErrore(String mess);
+    }
+
+    public interface OnRispostaListener
+    {
+        void onRisposta(String risp);
+        void onErrore(String mess);
+    }
+    private static void mandaRichiesta(String json,OnIdRicevutoListener listener)
     {
         new Thread(()->
         {
@@ -26,46 +37,33 @@ public class inviaOrdini {
                 HttpURLConnection conn=(HttpURLConnection)url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type","application/json; utf-8");
+                conn.setDoInput(true);
                 conn.setDoOutput(true);
                 conn.setInstanceFollowRedirects(false);
-                String json="{\"azione\":\"nuovoOrdine\"}";
                 OutputStream os=conn.getOutputStream();
                 os.write(json.getBytes(StandardCharsets.UTF_8));
                 os.close();
                 int codice=conn.getResponseCode();
-
+                HttpURLConnection conn2=conn;
                 if(codice==HttpURLConnection.HTTP_MOVED_TEMP||codice==HttpURLConnection.HTTP_MOVED_PERM)
                 {
-                    String url2=conn.getHeaderField("Location");
-                    URL urlNuovo=new URL(url2);
-                    HttpURLConnection conn2=(HttpURLConnection)urlNuovo.openConnection();
+                    String url2 = conn.getHeaderField("Location");
+                    URL urlNuovo = new URL(url2);
+                    conn2 = (HttpURLConnection) urlNuovo.openConnection();
                     conn2.setRequestMethod("GET");
-                    BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String risp=read.readLine();
-                    read.close();
-                    if(risp==null||risp.trim().isEmpty())
-                    {
-                        new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta vuota dal server"));
-                        System.out.println("non andata a buon fine");
-                        return;
-                    }
-                    int id=Integer.parseInt(risp.trim());
-                    new Handler(Looper.getMainLooper()).post(()->listener.onId(id));
                 }
-                else
+                BufferedReader read=new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+                String risp=read.readLine();
+                read.close();
+                if(risp==null||risp.trim().isEmpty())
                 {
-                    BufferedReader read=new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String risposta=read.readLine();
-                    read.close();
-                    if(risposta==null||risposta.trim().isEmpty())
-                    {
-                        new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta guota dal server"));
-                        System.out.println("non andata a buon fine");
-                        return;
-                    }
-                    int id=Integer.parseInt(risposta.trim());
-                    new Handler(Looper.getMainLooper()).post(()-> listener.onId(id));
+                    new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta vuota dal server"));
+                    System.out.println("non andata a buon fine");
+                    return;
                 }
+                int id=Integer.parseInt(risp.trim());
+                new Handler(Looper.getMainLooper()).post(()->listener.onId(id));
+
             }
             catch (Exception e)
             {
@@ -73,6 +71,17 @@ public class inviaOrdini {
                 new Handler(Looper.getMainLooper()).post(()-> listener.onErrore(e.getMessage()));
             }
         }).start();
+    }
+
+    public static void richiediId(OnStatoRicevutoListener listener)
+    {
+        mandaRichiesta("{\"azione\":\"nuovoOrdine\"}", new OnRispostaListener(){
+            @Override
+            public void onRisposta(String risp)
+            {
+                listener.onId(Integer.parseInt(risp));
+            }
+        }
     }
 
     public interface OnInviatoListener
