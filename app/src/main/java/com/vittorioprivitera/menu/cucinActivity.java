@@ -28,7 +28,7 @@ public class cucinActivity extends AppCompatActivity {
             @Override
             public void run() {
                 for (MenuItem item : ordiniTutti.getOrdini()) {
-                    inviaOrdini.richiediStato(item.getId(), new inviaOrdini.OnStatoRicevutoListener() {
+                    inviaOrdini.richiediStato(item.getId(), item.getNome(), new inviaOrdini.OnStatoRicevutoListener() {
                         @Override
                         public void onStato(String testo) {
                             System.out.println("stato "+testo);

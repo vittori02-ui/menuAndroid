@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbzutTj8K4cLX0Hm-6dw-oEAun9CtDuNIonpTJ3uEJll9nljNTrXEUafXjRWck-GkzAq/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbxORtxrEiB0xZTT04NMF31qugCbShg-YEnPZVFki8YKOwZmWNW3UsQ3VVR4hJSRleoa/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -108,9 +108,9 @@ public class inviaOrdini {
         });
     }
 
-    public static void richiediStato(int numero,OnStatoRicevutoListener listener)
+    public static void richiediStato(int numero,String piatto,OnStatoRicevutoListener listener)
     {
-        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero + "\"}", new OnRispostaListener() {
+        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero +"\", \"piatto\":\""+piatto+"\"}", new OnRispostaListener() {
             @Override
             public void onRisposta(String risp) {
                 listener.onStato(risp);
