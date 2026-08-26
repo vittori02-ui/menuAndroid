@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbzjaVQCg31sikKlj2hHggO3K93VXJ2uZq2v8ZDXbEEdgZQWac_Lb0YARE2N1RwvX3BI/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbzutTj8K4cLX0Hm-6dw-oEAun9CtDuNIonpTJ3uEJll9nljNTrXEUafXjRWck-GkzAq/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
