@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbyZKPo3hHHVYs2U_VdUhgb90nNM-WoFWyLTHup6qGvsjk8C0l08Pnc2CEoVy3rz1_GN/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbzjaVQCg31sikKlj2hHggO3K93VXJ2uZq2v8ZDXbEEdgZQWac_Lb0YARE2N1RwvX3BI/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -27,12 +27,13 @@ public class inviaOrdini {
         void onRisposta(String risp);
         void onErrore(String mess);
     }
-    private static void mandaRichiesta(String json,OnIdRicevutoListener listener)
+    private static void mandaRichiesta(String json,OnRispostaListener listener)
     {
         new Thread(()->
         {
             try
             {
+                int tent=0;
                 URL url=new URL(urlScript);
                 HttpURLConnection conn=(HttpURLConnection)url.openConnection();
                 conn.setRequestMethod("POST");
@@ -44,6 +45,18 @@ public class inviaOrdini {
                 os.write(json.getBytes(StandardCharsets.UTF_8));
                 os.close();
                 int codice=conn.getResponseCode();
+                while((codice==HttpURLConnection.HTTP_MOVED_TEMP||codice==HttpURLConnection.HTTP_MOVED_PERM||codice==303)&&tent<5)
+                {
+                    String local=conn.getHeaderField("Location");
+                    System.out.println("verso "+local);
+                    URL url2=new URL(local);
+                    conn=(HttpURLConnection)url2.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.setInstanceFollowRedirects(false);
+                    codice=conn.getResponseCode();
+                    tent++;
+                }
+                System.out.println("codice finale "+codice);
                 HttpURLConnection conn2=conn;
                 if(codice==HttpURLConnection.HTTP_MOVED_TEMP||codice==HttpURLConnection.HTTP_MOVED_PERM)
                 {
@@ -52,17 +65,22 @@ public class inviaOrdini {
                     conn2 = (HttpURLConnection) urlNuovo.openConnection();
                     conn2.setRequestMethod("GET");
                 }
-                BufferedReader read=new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+                BufferedReader read;
+                int codice2=conn2.getResponseCode();
+                System.out.println("codice: "+codice);
+                if(codice2>=200&&codice2<300)read=new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+                else read=new BufferedReader(new InputStreamReader(conn2.getErrorStream()));
                 String risp=read.readLine();
                 read.close();
+                System.out.println("risposta conn2 "+risp);
                 if(risp==null||risp.trim().isEmpty())
                 {
                     new Handler(Looper.getMainLooper()).post(()-> listener.onErrore("risposta vuota dal server"));
                     System.out.println("non andata a buon fine");
                     return;
                 }
-                int id=Integer.parseInt(risp.trim());
-                new Handler(Looper.getMainLooper()).post(()->listener.onId(id));
+                String finale=risp.trim();
+                new Handler(Looper.getMainLooper()).post(()->listener.onRisposta(finale));
 
             }
             catch (Exception e)
@@ -73,16 +91,38 @@ public class inviaOrdini {
         }).start();
     }
 
-    public static void richiediId(OnStatoRicevutoListener listener)
+    public static void richiediId(OnIdRicevutoListener listener)
     {
-        mandaRichiesta("{\"azione\":\"nuovoOrdine\"}", new OnRispostaListener(){
-            @Override
-            public void onRisposta(String risp)
-            {
-                listener.onId(Integer.parseInt(risp));
-            }
-        }
+        mandaRichiesta("{\"azione\":\"nuovoOrdine\"}",new OnRispostaListener()
+        {
+           @Override
+           public void onRisposta(String risp)
+           {
+               listener.onId(Integer.parseInt(risp));
+           }
+           @Override
+            public void onErrore(String mess)
+           {
+               listener.onErrore(mess);
+           }
+        });
     }
+
+    public static void richiediStato(int numero,OnStatoRicevutoListener listener)
+    {
+        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero + "\"}", new OnRispostaListener() {
+            @Override
+            public void onRisposta(String risp) {
+                listener.onStato(risp);
+            }
+
+            @Override
+            public void onErrore(String mess) {
+                listener.onErrore(mess);
+            }
+        });
+    }
+
 
     public interface OnInviatoListener
     {

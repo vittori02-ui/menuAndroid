@@ -38,6 +38,10 @@ public class MenuItem implements Serializable {
     {
         this.id=id;
     }
+    public void setPronto(boolean pronto)
+    {
+        this.pronto=pronto;
+    }
 
     public String completo()
     {

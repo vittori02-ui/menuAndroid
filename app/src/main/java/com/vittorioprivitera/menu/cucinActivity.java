@@ -6,10 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,43 @@ public class cucinActivity extends AppCompatActivity {
     RecyclerView ordini;
     Button indietro,invia;
     Intent act;
+    private Handler pollingHandler=new Handler(Looper.getMainLooper());
+    private Runnable polling;
+    private static final int inter=5000;
+
+    private void avviaPolling(cucinaAdapter adap)
+    {
+        polling=new Runnable() {
+            @Override
+            public void run() {
+                for (MenuItem item : ordiniTutti.getOrdini()) {
+                    inviaOrdini.richiediStato(item.getId(), new inviaOrdini.OnStatoRicevutoListener() {
+                        @Override
+                        public void onStato(String testo) {
+                            System.out.println("stato "+testo);
+                            boolean cista = testo.trim().equalsIgnoreCase("pronto");
+                            System.out.println("pronto "+cista);
+                            item.setPronto(cista);
+                            adap.notifyDataSetChanged();
+                        }
+                        @Override
+                        public void onErrore(String mess)
+                        {
+                            System.out.println("errore polling "+mess);
+                        }
+                    });
+                }
+                pollingHandler.postDelayed(this,inter);
+            }
+        };
+        pollingHandler.post(polling);
+    }
+    private void fermaPolling()
+    {
+        if(pollingHandler!=null)pollingHandler.removeCallbacks(polling);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +89,13 @@ public class cucinActivity extends AppCompatActivity {
         invia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                inviaOrdini.invialista(sala, tav, ordiniTutti.getOrdini(), () ->
+                {
+                    Toast.makeText(cucinActivity.this, "ordine inviato ", Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+                /*
                 inviaOrdini.richiediId(new inviaOrdini.OnIdRicevutoListener() {
                     @Override
                     public void onId(int id) {
@@ -69,7 +114,7 @@ public class cucinActivity extends AppCompatActivity {
                         Toast.makeText(cucinActivity.this,"Errore "+mess,Toast.LENGTH_LONG).show();
                         System.out.println(mess);
                     }
-                });
+                });*/
 
 
                 /*
@@ -81,8 +126,12 @@ public class cucinActivity extends AppCompatActivity {
                    ordiniTutti.svuota();
                 });
                 */
-
-            }
-        });
+        avviaPolling(adap);
+    }
+    @Override
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        fermaPolling();
     }
 }

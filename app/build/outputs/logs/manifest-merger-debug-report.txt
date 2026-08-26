@@ -51,6 +51,10 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Vittori
 		INJECTED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml:4:5-66
+	android:name
+		ADDED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml:4:22-64
 application
 ADDED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml:5:5-30:19
 INJECTED from C:\Users\Vittorio Privitera\AndroidStudioProjects\menu2\app\src\main\AndroidManifest.xml:5:5-30:19
