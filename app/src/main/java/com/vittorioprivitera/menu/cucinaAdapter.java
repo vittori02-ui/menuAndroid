@@ -18,13 +18,15 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
     }
     public static class OrdineViewHolder extends RecyclerView.ViewHolder
     {
-        TextView nome,prezzo,desc;
+        TextView nome,prezzo,desc,stato;
         public OrdineViewHolder(@NonNull View itemView)
         {
             super(itemView);
             nome=itemView.findViewById(R.id.nome);
             prezzo=itemView.findViewById(R.id.prezzo);
             desc=itemView.findViewById(R.id.descrizione);
+            stato=itemView.findViewById(R.id.pronto);
+
         }
     }
 
@@ -43,8 +45,20 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
         holder.nome.setText(item.getNome());
         holder.prezzo.setText(item.getPrezzo()+" €");
         holder.desc.setText(item.getDesc());
-        if(item.getPronto())holder.itemView.setBackgroundColor(Color.parseColor("#C8E6C9"));
-        else holder.itemView.setBackgroundColor(Color.parseColor("#FFECB3"));
+        if(item.getPronto())
+        {
+            holder.stato.setVisibility(View.VISIBLE);
+            holder.itemView.setBackgroundColor(Color.parseColor("#C8E6C9"));
+            holder.stato.setTextColor(Color.parseColor("#000000"));
+            holder.stato.setText("Pronto");
+        }
+        else
+        {
+            holder.stato.setVisibility(View.VISIBLE);
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFECB3"));
+            holder.stato.setTextColor(Color.parseColor("#000000"));
+            holder.stato.setText("In attesa");
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +66,7 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
                 if(pos==RecyclerView.NO_POSITION)return;
                 MenuItem itemClick=lista.get(pos);
                 boolean stato=!itemClick.getPronto();
+                itemClick.setPronto(stato);
                 notifyItemChanged(pos);
             }
         });

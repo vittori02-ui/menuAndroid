@@ -27,7 +27,14 @@ public class cucinActivity extends AppCompatActivity {
         polling=new Runnable() {
             @Override
             public void run() {
-                for (MenuItem item : ordiniTutti.getOrdini()) {
+                List<MenuItem>daControllare=ordiniTutti.getInviati();
+                int[] cont={daControllare.size()};
+                if(cont[0]==0)
+                {
+                    pollingHandler.postDelayed(this,inter);
+                    return;
+                }
+                for (MenuItem item : ordiniTutti.getInviati()) {
                     inviaOrdini.richiediStato(item.getId(), item.getNome(), new inviaOrdini.OnStatoRicevutoListener() {
                         @Override
                         public void onStato(String testo) {
@@ -35,11 +42,22 @@ public class cucinActivity extends AppCompatActivity {
                             boolean cista = testo.trim().equalsIgnoreCase("pronto");
                             System.out.println("pronto "+cista);
                             item.setPronto(cista);
-                            adap.notifyDataSetChanged();
+                            cont[0]--;
+                            if(cont[0]==0)
+                            {
+                                adap.notifyDataSetChanged();
+                                pollingHandler.postDelayed(polling,inter);
+                            }
                         }
                         @Override
                         public void onErrore(String mess)
                         {
+                            cont[0]--;
+                            if(cont[0]==0)
+                            {
+                                adap.notifyDataSetChanged();
+                                pollingHandler.postDelayed(polling,inter);
+                            }
                             System.out.println("errore polling "+mess);
                         }
                     });
@@ -65,8 +83,10 @@ public class cucinActivity extends AppCompatActivity {
         ordini.setLayoutManager(new LinearLayoutManager(this));
         //ArrayList<Object> ordiniTot=(ArrayList<Object>) getIntent().getSerializableExtra("ordini");
         //List<MenuItem> ordiniTot=new ArrayList<>(ordiniTutti.getOrdini()); //copia
-        List<MenuItem> ordiniTot=ordiniTutti.getOrdini();
-        List<Object> ordiniConv=new ArrayList<>(ordiniTot);
+        List<MenuItem> ordiniTot=new ArrayList<>();
+        ordiniTot.addAll(ordiniTutti.getOrdini());
+        ordiniTot.addAll(ordiniTutti.getInviati());
+        //List<Object> ordiniConv=new ArrayList<>(ordiniTot);
         //menuAdapter menu= new menuAdapter(ordiniConv);
         cucinaAdapter adap=new cucinaAdapter(ordiniTot);
         ordini.setAdapter(adap);
@@ -89,9 +109,28 @@ public class cucinActivity extends AppCompatActivity {
         invia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                inviaOrdini.invialista(sala, tav, ordiniTutti.getOrdini(), () ->
-                {
-                    Toast.makeText(cucinActivity.this, "ordine inviato ", Toast.LENGTH_SHORT).show();
+                inviaOrdini.richiediId(new inviaOrdini.OnIdRicevutoListener() {
+                    @Override
+                    public void onId(int id) {
+                        for(MenuItem item: ordiniTutti.getOrdini())
+                        {
+                            item.setId(id);
+                        }
+                        inviaOrdini.invialista(sala,tav,ordiniTutti.getOrdini(),()->
+                        {
+                            Toast.makeText(cucinActivity.this,"ordine inviato",Toast.LENGTH_SHORT).show();
+                            for(MenuItem item:ordiniTutti.getOrdini())
+                            {
+                                ordiniTutti.addElemInviato(item);
+                            }
+                            ordiniTutti.svuota();
+                        });
+                    }
+
+                    @Override
+                    public void onErrore(String mess) {
+                        Toast.makeText(cucinActivity.this,"non inviato "+mess,Toast.LENGTH_LONG).show();
+                    }
                 });
             }
         });

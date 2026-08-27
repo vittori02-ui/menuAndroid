@@ -29,6 +29,7 @@ id numClienti_txt
 id ordini
 id prezText
 id prezzo
+id pronto
 id testoCoperto
 id testoSala
 id testoTavolo
