@@ -80,8 +80,14 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
 
     public void spostaElemento(int daPos,int inPos)
     {
+        MenuItem daItem=lista.get(daPos);
+        MenuItem inItem=lista.get(inPos);
         Collections.swap(lista,daPos,inPos);
         notifyItemMoved(daPos,inPos);
+        List<MenuItem> carello=ordiniTutti.getOrdini();
+        int x=carello.indexOf(daItem);
+        int y=carello.indexOf(inItem);
+        if(x!=-1&&y!=-1)Collections.swap(carello,x,y);
         System.out.println("spostato");
     }
 }

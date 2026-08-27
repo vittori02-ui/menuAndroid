@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbyA4CY2cJ-HIRYM25ckm10AUapntrhNo8yp0xuSF5s0qOlmKOru4VHq7cuNxV12nm7F/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbzCqd187EYuzQeMJLcnTOY4sF3pP2LYycIR-CAqJB_sCnDHfmY7KWWJLukBfVQ3thMT/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -35,34 +35,36 @@ public class inviaOrdini {
     }
     public interface OnStatoMultiploListener
     {
-        void onRis(Map<Integer,Boolean>ris);
+        void onRis(Map<String,Boolean>ris);
         void onErrore(String mess);
     }
-    public static void richiediStatiMult(List<Integer> ids,OnStatoMultiploListener listener)
+    public static void richiediStatiMult(List<MenuItem> items,OnStatoMultiploListener listener)
     {
         StringBuilder json=new StringBuilder("[");
-        for(int i=0;i<ids.size();i++)
+        for(int i=0;i<items.size();i++)
         {
-            json.append(ids.get(i));
-            if(i<ids.size()-1)json.append(",");
+            MenuItem it=items.get(i);
+            json.append("{\"id\":").append(it.getId()).append(",\"piatto\":\"").append(it.getNome()).append("\"}");
+            if(i<items.size()-1)json.append(",");
         }
         json.append("]");
-        String manda="{\"azione\":\"statoMultiplo\",\"ids\":"+json+"}";
+        String manda="{\"azione\":\"statoMultiplo\",\"items\":"+json+"}";
         mandaRichiesta(manda, new OnRispostaListener() {
             @Override
             public void onRisposta(String risp) {
                 try
                 {
                     JSONObject obj=new JSONObject(risp);
-                    Map<Integer,Boolean> ris=new HashMap<>();
+                    Map<String,Boolean> ris=new HashMap<>();
                     Iterator<String> chiavi=obj.keys();
                     while(chiavi.hasNext())
                     {
                         String chiave=chiavi.next();
                         JSONObject sing=obj.getJSONObject(chiave);
                         boolean pronto=sing.getBoolean("pronto");
-                        ris.put(Integer.parseInt(chiave),pronto);
+                        ris.put(chiave,pronto);
                     }
+                    listener.onRis(ris);
                 }
                 catch (Exception e)
                 {

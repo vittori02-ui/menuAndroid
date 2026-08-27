@@ -40,13 +40,14 @@ public class cucinActivity extends AppCompatActivity {
                     pollingHandler.postDelayed(this,inter);
                     return;
                 }
-                List<Integer> lista=new ArrayList<>(daControllare);
-                inviaOrdini.richiediStatiMult(lista, new inviaOrdini.OnStatoMultiploListener() {
+                //List<Integer> lista=new ArrayList<>(daControllare);
+                inviaOrdini.richiediStatiMult(ordiniTutti.getInviati(), new inviaOrdini.OnStatoMultiploListener() {
                     @Override
-                    public void onRis(Map<Integer, Boolean> ris) {
+                    public void onRis(Map<String, Boolean> ris) {
                         for(MenuItem item:ordiniTutti.getInviati())
                         {
-                            if(ris.containsKey(item.getId()))item.setPronto(ris.get(item.getId()));
+                            String chiave=item.getId()+"_"+item.getNome();
+                            if(ris.containsKey(chiave))item.setPronto(ris.get(chiave));
                         }
                         adap.notifyDataSetChanged();
                         pollingHandler.postDelayed(polling,inter);
@@ -58,7 +59,6 @@ public class cucinActivity extends AppCompatActivity {
                         pollingHandler.postDelayed(polling,inter);
                     }
                 });
-                pollingHandler.postDelayed(this,inter);
             }
         };
         pollingHandler.post(polling);
