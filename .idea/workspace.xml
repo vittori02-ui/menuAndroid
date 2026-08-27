@@ -34,7 +34,6 @@
     <list default="true" id="8971becc-10c3-46e9-8d1f-cc166f31d91f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinaAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinaAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

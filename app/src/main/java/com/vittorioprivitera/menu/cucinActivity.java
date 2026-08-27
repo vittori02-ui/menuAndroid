@@ -23,42 +23,59 @@ public class cucinActivity extends AppCompatActivity {
     Intent act;
     private Handler pollingHandler=new Handler(Looper.getMainLooper());
     private Runnable polling;
-    private static final int inter=5000;
+    private static final int inter=20000;
+    private int ultimaVer=-1;
 
     private void avviaPolling(cucinaAdapter adap)
     {
         polling=new Runnable() {
             @Override
             public void run() {
-                Set<Integer> daControllare=new HashSet<>();
-                for(MenuItem item:ordiniTutti.getInviati())
-                {
-                    if(!item.getPronto())daControllare.add(item.getId());
-                }
-                if(daControllare.isEmpty())
-                {
-                    pollingHandler.postDelayed(this,inter);
-                    return;
-                }
-                //List<Integer> lista=new ArrayList<>(daControllare);
-                inviaOrdini.richiediStatiMult(ordiniTutti.getInviati(), new inviaOrdini.OnStatoMultiploListener() {
+                inviaOrdini.richiediVersione(new inviaOrdini.OnVersioneListener() {
                     @Override
-                    public void onRis(Map<String, Boolean> ris) {
+                    public void onVersione(int versione) {
+                        if(versione==ultimaVer){
+                            pollingHandler.postDelayed(polling,inter);
+                            return;
+                        }
+                        ultimaVer=versione;
+                        Set<Integer> daControllare=new HashSet<>();
                         for(MenuItem item:ordiniTutti.getInviati())
                         {
-                            String chiave=item.getId()+"_"+item.getNome();
-                            if(ris.containsKey(chiave))item.setPronto(ris.get(chiave));
+                            if(!item.getPronto())daControllare.add(item.getId());
                         }
-                        adap.notifyDataSetChanged();
-                        pollingHandler.postDelayed(polling,inter);
+                        if(daControllare.isEmpty())
+                        {
+                            pollingHandler.postDelayed(polling,inter);
+                            return;
+                        }
+                        //List<Integer> lista=new ArrayList<>(daControllare);
+                        inviaOrdini.richiediStatiMult(ordiniTutti.getInviati(), new inviaOrdini.OnStatoMultiploListener() {
+                            @Override
+                            public void onRis(Map<String, Boolean> ris) {
+                                for(MenuItem item:ordiniTutti.getInviati())
+                                {
+                                    String chiave=item.getId()+"_"+item.getNome();
+                                    if(ris.containsKey(chiave))item.setPronto(ris.get(chiave));
+                                }
+                                adap.notifyDataSetChanged();
+                                pollingHandler.postDelayed(polling,inter);
+                            }
+
+                            @Override
+                            public void onErrore(String mess) {
+                                System.out.println("errore nel polling");
+                                pollingHandler.postDelayed(polling,inter);
+                            }
+                        });
                     }
 
                     @Override
-                    public void onErrore(String mess) {
-                        System.out.println("errore nel polling");
+                    public void onErrore(String mees) {
                         pollingHandler.postDelayed(polling,inter);
                     }
                 });
+
             }
         };
         pollingHandler.post(polling);

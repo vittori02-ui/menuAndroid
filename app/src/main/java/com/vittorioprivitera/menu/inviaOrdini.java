@@ -16,7 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbzCqd187EYuzQeMJLcnTOY4sF3pP2LYycIR-CAqJB_sCnDHfmY7KWWJLukBfVQ3thMT/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbwoxCAqUAoMQ4UfGcLqta6fDmONAr0Hv9nz8TtbywOwClwo9tpr3JHbxJH4hGVu5KKj/exec";
+    public interface OnVersioneListener
+    {
+        void onVersione(int versione);
+        void onErrore(String mees);
+    }
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -37,6 +42,31 @@ public class inviaOrdini {
     {
         void onRis(Map<String,Boolean>ris);
         void onErrore(String mess);
+    }
+    public static void richiediVersione(OnVersioneListener listener)
+    {
+        mandaRichiesta("{\"azione\":\"getVersione\"}", new OnRispostaListener() {
+            @Override
+            public void onRisposta(String risp) {
+                String pulito=risp.trim();
+                if(pulito.startsWith("<"))
+                {
+                    listener.onErrore("ha risposto con html");
+                    return;
+                }
+                try {
+                    listener.onVersione(Integer.parseInt(risp.trim()));
+                }
+                catch (Exception e)
+                {
+                    listener.onErrore("è nel catch");
+                }
+            }
+            @Override
+            public void onErrore(String mess) {
+                listener.onErrore(mess);
+            }
+        });
     }
     public static void richiediStatiMult(List<MenuItem> items,OnStatoMultiploListener listener)
     {
