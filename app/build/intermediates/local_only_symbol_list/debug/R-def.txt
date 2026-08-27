@@ -10,7 +10,9 @@ drawable messi1
 id Bindietro
 id bIndietro
 id bInvia
+id bPaga
 id buttonAvanti
+id cassa
 id cucina
 id desTxt
 id descrizione
@@ -22,12 +24,15 @@ id img
 id lb1
 id lb2
 id lb3
+id lista
+id lista2
 id menu
 id menuGraf
 id nome
 id numClienti_txt
 id ordini
 id prezText
+id prezzi
 id prezzo
 id pronto
 id testoCoperto
@@ -35,7 +40,9 @@ id testoSala
 id testoTavolo
 id textView
 id titolo
+id totale
 id twCoperto
+layout activity_cassa
 layout activity_cucina
 layout activity_main
 layout item

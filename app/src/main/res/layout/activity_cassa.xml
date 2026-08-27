@@ -8,10 +8,33 @@
     android:orientation="vertical"
     tools:context=".cassa">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:layout_weight="5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lista2"
+            android:layout_width="620dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/prezzi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:visibility="gone">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -20,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:gravity="end"
         android:textSize="20sp"
         android:textStyle="bold" />

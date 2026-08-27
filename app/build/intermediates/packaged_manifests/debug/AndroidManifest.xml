@@ -30,6 +30,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Menu" >
         <activity
+            android:name="com.vittorioprivitera.menu.cassa"
+            android:exported="false" />
+        <activity
             android:name="com.vittorioprivitera.menu.cucinActivity"
             android:exported="false" />
         <activity
