@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cassa.xml">
+        <config>
+          <theme>@style/Theme.Menu</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_cucina.xml">
         <config>
           <theme>@style/Theme.Menu</theme>
@@ -32,9 +37,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8971becc-10c3-46e9-8d1f-cc166f31d91f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cassa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cassaAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cassa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cucinActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cucina.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cucina.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +60,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,6 +94,9 @@
 }</component>
   <component name="RecentsManager">
     <key name="android.template.1390690529">
+      <recent name="com.vittorioprivitera.menu" />
+    </key>
+    <key name="android.template.-883237549">
       <recent name="com.vittorioprivitera.menu" />
     </key>
   </component>

@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class cucinActivity extends AppCompatActivity {
     RecyclerView ordini;
-    Button indietro,invia;
+    Button indietro,invia,cassa;
     Intent act;
     private Handler pollingHandler=new Handler(Looper.getMainLooper());
     private Runnable polling;
@@ -93,6 +93,7 @@ public class cucinActivity extends AppCompatActivity {
         ordini=findViewById(R.id.ordini);
         indietro=findViewById(R.id.Bindietro);
         invia=findViewById(R.id.bInvia);
+        cassa=findViewById(R.id.cassa);
         ordini.setLayoutManager(new LinearLayoutManager(this));
         //ArrayList<Object> ordiniTot=(ArrayList<Object>) getIntent().getSerializableExtra("ordini");
         //List<MenuItem> ordiniTot=new ArrayList<>(ordiniTutti.getOrdini()); //copia
@@ -179,6 +180,16 @@ public class cucinActivity extends AppCompatActivity {
                 });
                 */
         avviaPolling(adap);
+        cassa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                act=new Intent(cucinActivity.this,cassa.class);
+                act.putExtra("sala",sala);
+                act.putExtra("tavolo",tav);
+                act.putExtra("clienti",cli);
+                startActivity(act);
+            }
+        });
     }
     @Override
     protected void onDestroy()

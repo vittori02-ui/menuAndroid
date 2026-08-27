@@ -40,5 +40,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="INVIA" />
+
+        <Button
+            android:id="@+id/cassa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="CASSA" />
     </LinearLayout>
 </LinearLayout>

@@ -27,12 +27,6 @@ public class inviaOrdini {
         void onId(int id);
         void onErrore(String mess);
     }
-    public interface OnStatoRicevutoListener
-    {
-        void onStato(String testo);
-        void onErrore(String mess);
-    }
-
     public interface OnRispostaListener
     {
         void onRisposta(String risp);
@@ -188,22 +182,6 @@ public class inviaOrdini {
            }
         });
     }
-
-    public static void richiediStato(int numero,OnStatoRicevutoListener listener)
-    {
-        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero +"\"}", new OnRispostaListener() {
-            @Override
-            public void onRisposta(String risp) {
-                listener.onStato(risp);
-            }
-
-            @Override
-            public void onErrore(String mess) {
-                listener.onErrore(mess);
-            }
-        });
-    }
-
 
     public interface OnInviatoListener
     {
