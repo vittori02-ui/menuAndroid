@@ -12,7 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class cucinActivity extends AppCompatActivity {
     RecyclerView ordini;
@@ -27,41 +30,34 @@ public class cucinActivity extends AppCompatActivity {
         polling=new Runnable() {
             @Override
             public void run() {
-                List<MenuItem>daControllare=ordiniTutti.getInviati();
-                int[] cont={daControllare.size()};
-                if(cont[0]==0)
+                Set<Integer> daControllare=new HashSet<>();
+                for(MenuItem item:ordiniTutti.getInviati())
+                {
+                    if(!item.getPronto())daControllare.add(item.getId());
+                }
+                if(daControllare.isEmpty())
                 {
                     pollingHandler.postDelayed(this,inter);
                     return;
                 }
-                for (MenuItem item : ordiniTutti.getInviati()) {
-                    inviaOrdini.richiediStato(item.getId(), item.getNome(), new inviaOrdini.OnStatoRicevutoListener() {
-                        @Override
-                        public void onStato(String testo) {
-                            System.out.println("stato "+testo);
-                            boolean cista = testo.trim().equalsIgnoreCase("pronto");
-                            System.out.println("pronto "+cista);
-                            item.setPronto(cista);
-                            cont[0]--;
-                            if(cont[0]==0)
-                            {
-                                adap.notifyDataSetChanged();
-                                pollingHandler.postDelayed(polling,inter);
-                            }
-                        }
-                        @Override
-                        public void onErrore(String mess)
+                List<Integer> lista=new ArrayList<>(daControllare);
+                inviaOrdini.richiediStatiMult(lista, new inviaOrdini.OnStatoMultiploListener() {
+                    @Override
+                    public void onRis(Map<Integer, Boolean> ris) {
+                        for(MenuItem item:ordiniTutti.getInviati())
                         {
-                            cont[0]--;
-                            if(cont[0]==0)
-                            {
-                                adap.notifyDataSetChanged();
-                                pollingHandler.postDelayed(polling,inter);
-                            }
-                            System.out.println("errore polling "+mess);
+                            if(ris.containsKey(item.getId()))item.setPronto(ris.get(item.getId()));
                         }
-                    });
-                }
+                        adap.notifyDataSetChanged();
+                        pollingHandler.postDelayed(polling,inter);
+                    }
+
+                    @Override
+                    public void onErrore(String mess) {
+                        System.out.println("errore nel polling");
+                        pollingHandler.postDelayed(polling,inter);
+                    }
+                });
                 pollingHandler.postDelayed(this,inter);
             }
         };

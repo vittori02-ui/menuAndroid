@@ -1,16 +1,22 @@
 package com.vittorioprivitera.menu;
 import android.os.Looper;
 import android.os.Handler;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbxORtxrEiB0xZTT04NMF31qugCbShg-YEnPZVFki8YKOwZmWNW3UsQ3VVR4hJSRleoa/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbyA4CY2cJ-HIRYM25ckm10AUapntrhNo8yp0xuSF5s0qOlmKOru4VHq7cuNxV12nm7F/exec";
     public interface OnIdRicevutoListener
     {
         void onId(int id);
@@ -26,6 +32,49 @@ public class inviaOrdini {
     {
         void onRisposta(String risp);
         void onErrore(String mess);
+    }
+    public interface OnStatoMultiploListener
+    {
+        void onRis(Map<Integer,Boolean>ris);
+        void onErrore(String mess);
+    }
+    public static void richiediStatiMult(List<Integer> ids,OnStatoMultiploListener listener)
+    {
+        StringBuilder json=new StringBuilder("[");
+        for(int i=0;i<ids.size();i++)
+        {
+            json.append(ids.get(i));
+            if(i<ids.size()-1)json.append(",");
+        }
+        json.append("]");
+        String manda="{\"azione\":\"statoMultiplo\",\"ids\":"+json+"}";
+        mandaRichiesta(manda, new OnRispostaListener() {
+            @Override
+            public void onRisposta(String risp) {
+                try
+                {
+                    JSONObject obj=new JSONObject(risp);
+                    Map<Integer,Boolean> ris=new HashMap<>();
+                    Iterator<String> chiavi=obj.keys();
+                    while(chiavi.hasNext())
+                    {
+                        String chiave=chiavi.next();
+                        JSONObject sing=obj.getJSONObject(chiave);
+                        boolean pronto=sing.getBoolean("pronto");
+                        ris.put(Integer.parseInt(chiave),pronto);
+                    }
+                }
+                catch (Exception e)
+                {
+                    listener.onErrore("errore nel parsing");
+                }
+            }
+
+            @Override
+            public void onErrore(String mess) {
+                listener.onErrore(mess);
+            }
+        });
     }
     private static void mandaRichiesta(String json,OnRispostaListener listener)
     {
@@ -108,9 +157,9 @@ public class inviaOrdini {
         });
     }
 
-    public static void richiediStato(int numero,String piatto,OnStatoRicevutoListener listener)
+    public static void richiediStato(int numero,OnStatoRicevutoListener listener)
     {
-        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero +"\", \"piatto\":\""+piatto+"\"}", new OnRispostaListener() {
+        mandaRichiesta("{\"azione\":\"statoOrdine\",\"numero\":\"" + numero +"\"}", new OnRispostaListener() {
             @Override
             public void onRisposta(String risp) {
                 listener.onStato(risp);
