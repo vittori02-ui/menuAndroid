@@ -49,6 +49,15 @@
         </activity>
 
         <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.vittorioprivitera.menu.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.vittorioprivitera.menu.androidx-startup"
             android:exported="false" >

@@ -16,6 +16,10 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/xml_file_paths.xml.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/xml/file_paths.xml"
+    },
+    {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
@@ -40,12 +44,12 @@
         "source": "com.vittorioprivitera.menu.app-main-35:/layout/activity_cassa.xml"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-mdpi_ic_launcher.webp.flat",

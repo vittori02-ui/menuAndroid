@@ -104,11 +104,23 @@ public class cassa extends AppCompatActivity {
         {
             tot+=item.getPrezzo();
         }
-        totale.setText("TOTALE "+tot+2.50*cli+"€");
+        totale.setText("TOTALE "+(tot+2.50*cli)+"€");
         paga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                File pdf=generaPdf();
+                if(pdf!=null)condPdf(pdf);
+                inviaOrdini.inviaPag(sala,tav,tutti,tot,new inviaOrdini.OnInviatoListener()
+                {
+                    @Override
+                    public void onSuccesso() {
+                        Toast.makeText(cassa.this,"pagamento inviato",Toast.LENGTH_SHORT).show();
+                    }
+                    @Override
+                    public void onErrore(String messaggio) {
+                        Toast.makeText(cassa.this,"pagamento non inviato",Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
     }

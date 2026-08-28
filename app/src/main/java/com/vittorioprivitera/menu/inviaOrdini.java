@@ -37,6 +37,49 @@ public class inviaOrdini {
         void onRis(Map<String,Boolean>ris);
         void onErrore(String mess);
     }
+    public static void inviaPag(String sala,String tav,List<MenuItem> lista,float tot,OnInviatoListener listener)
+    {
+        new Thread(()->
+        {
+            try
+            {
+                StringBuilder piatti=new StringBuilder("[");
+                for(int i=0;i<lista.size();i++)
+                {
+                    MenuItem item=lista.get(i);
+                    piatti.append("{\"nome\":\"").append(item.getNome()).append("\",\"prezzo\":").append(item.getPrezzo()).append("}");
+                    if(i<lista.size()-1)piatti.append(",");
+                }
+                piatti.append("]");
+                String json = "{"
+                        + "\"azione\":\"pagamento\","
+                        + "\"sala\":\"" + sala + "\","
+                        + "\"tavolo\":\"" + tav + "\","
+                        + "\"totale\":" + tot + ","
+                        + "\"piatti\":" + piatti
+                        + "}";
+                URL url=new URL(urlScript);
+                HttpURLConnection conn=(HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("POST");
+                conn.setRequestProperty("Content-Type","application/json; utf-8");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                OutputStream os=conn.getOutputStream();
+                os.write(json.getBytes(StandardCharsets.UTF_8));
+                os.close();
+                int cod=conn.getResponseCode();
+                new Handler(Looper.getMainLooper()).post(()->
+                {
+                    if(cod==200)listener.onSuccesso();
+                    else listener.onErrore("cod "+cod);
+                });
+            }
+            catch(Exception e)
+            {
+                new Handler(Looper.getMainLooper()).post(()->listener.onErrore(e.getMessage()));
+            }
+        }).start();
+    }
     public static void richiediVersione(OnVersioneListener listener)
     {
         mandaRichiesta("{\"azione\":\"getVersione\"}", new OnRispostaListener() {

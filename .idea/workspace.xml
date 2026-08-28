@@ -30,6 +30,11 @@
           <theme>@style/Theme.Menu</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml">
+        <config>
+          <theme>@style/Theme.Menu</theme>
+        </config>
+      </layout>
     </layouts>
   </component>
   <component name="AutoImportSettings">
@@ -37,9 +42,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8971becc-10c3-46e9-8d1f-cc166f31d91f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/file_paths.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cassa.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/cassa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_cassa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_cassa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/vittorioprivitera/menu/inviaOrdini.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +56,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[c1b7c323]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Vittorio Privitera\.android\avd\Medium_Phone.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -59,6 +66,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>

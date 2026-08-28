@@ -56,3 +56,4 @@ style Base.Theme.Menu
 style Theme.Menu
 xml backup_rules
 xml data_extraction_rules
+xml file_paths
