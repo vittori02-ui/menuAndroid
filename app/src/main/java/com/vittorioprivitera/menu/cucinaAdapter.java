@@ -59,17 +59,6 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
             holder.stato.setTextColor(Color.parseColor("#000000"));
             holder.stato.setText("In attesa");
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int pos=holder.getBindingAdapterPosition();
-                if(pos==RecyclerView.NO_POSITION)return;
-                MenuItem itemClick=lista.get(pos);
-                boolean stato=!itemClick.getPronto();
-                itemClick.setPronto(stato);
-                notifyItemChanged(pos);
-            }
-        });
     }
 
     @Override

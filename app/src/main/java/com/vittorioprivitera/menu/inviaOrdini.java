@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class inviaOrdini {
-    private static final String urlScript="https://script.google.com/macros/s/AKfycbwoxCAqUAoMQ4UfGcLqta6fDmONAr0Hv9nz8TtbywOwClwo9tpr3JHbxJH4hGVu5KKj/exec";
+    private static final String urlScript="https://script.google.com/macros/s/AKfycbyLqLekN8fpcLZcW2MbgbB-nPxBvSNCNhHiuehHduOmX6KvlBfaAsrX9A86snxm1hP6/exec";
     public interface OnVersioneListener
     {
         void onVersione(int versione);
@@ -58,20 +58,15 @@ public class inviaOrdini {
                         + "\"totale\":" + tot + ","
                         + "\"piatti\":" + piatti
                         + "}";
-                URL url=new URL(urlScript);
-                HttpURLConnection conn=(HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Content-Type","application/json; utf-8");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                OutputStream os=conn.getOutputStream();
-                os.write(json.getBytes(StandardCharsets.UTF_8));
-                os.close();
-                int cod=conn.getResponseCode();
-                new Handler(Looper.getMainLooper()).post(()->
-                {
-                    if(cod==200)listener.onSuccesso();
-                    else listener.onErrore("cod "+cod);
+                mandaRichiesta(json, new OnRispostaListener() {
+                    @Override
+                    public void onRisposta(String risp) {
+                        if(risp.trim().equalsIgnoreCase("ok"))listener.onSuccesso();
+                    }
+                    @Override
+                    public void onErrore(String mess) {
+                        listener.onErrore("risposta no "+mess);
+                    }
                 });
             }
             catch(Exception e)
@@ -216,7 +211,20 @@ public class inviaOrdini {
            @Override
            public void onRisposta(String risp)
            {
-               listener.onId(Integer.parseInt(risp));
+               String pulito=risp.trim();
+               if(pulito.startsWith("<"))
+               {
+                   listener.onErrore("il seerver ha risp con html da id");
+                   return;
+               }
+               try
+               {
+                   listener.onId(Integer.parseInt(risp));
+               }
+               catch (Exception e)
+               {
+                   listener.onErrore("formato non valido");
+               }
            }
            @Override
             public void onErrore(String mess)

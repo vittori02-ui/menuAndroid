@@ -30,11 +30,11 @@ public class cassa extends AppCompatActivity {
         try
         {
             android.graphics.pdf.PdfDocument doc=new android.graphics.pdf.PdfDocument();
-            PdfDocument.PageInfo info= new PdfDocument.PageInfo.Builder(300,500,1).create();
+            PdfDocument.PageInfo info= new PdfDocument.PageInfo.Builder(650,1000,1).create();
             PdfDocument.Page pagina=doc.startPage(info);
             android.graphics.Canvas canvas=pagina.getCanvas();
             android.graphics.Paint paint=new Paint();
-            paint.setTextSize(20);
+            paint.setTextSize(25);
             int y=30;
             canvas.drawText("SCONTRINO",100,y,paint);
             y+=20;
@@ -48,7 +48,7 @@ public class cassa extends AppCompatActivity {
             y+=20;
             canvas.drawText("Coperto "+2.50*cli+"€",20,y,paint);
             y+=20;
-            paint.setTextSize(16);
+            paint.setTextSize(20);
             canvas.drawText("Totale: "+tot+"€",20,y,paint);
             doc.finishPage(pagina);
             File dir=new File(getExternalFilesDir(null),"scontrini");
