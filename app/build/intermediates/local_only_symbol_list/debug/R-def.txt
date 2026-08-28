@@ -8,6 +8,7 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable messi1
 id Bindietro
+id bDietro
 id bIndietro
 id bInvia
 id bPaga

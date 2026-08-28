@@ -16,8 +16,9 @@
 
         <TextView
             android:id="@+id/lista2"
-            android:layout_width="620dp"
+            android:layout_width="580dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_weight="6"
             android:textSize="20sp" />
 
@@ -25,6 +26,7 @@
             android:id="@+id/prezzi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_weight="6"
             android:textSize="20sp" />
     </LinearLayout>
@@ -43,15 +45,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_weight="0"
+        android:layout_weight="1"
         android:gravity="end"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/bPaga"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PAGA"
-        android:textSize="20dp" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bDietro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:text="INDIETRO"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bPaga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text="PAGA"
+            android:textSize="20dp" />
+    </LinearLayout>
+
 </LinearLayout>
