@@ -3,11 +3,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,7 +19,10 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class cassa extends AppCompatActivity {
     RecyclerView listaCassa;
@@ -26,6 +32,8 @@ public class cassa extends AppCompatActivity {
     int cli;
     float tot=0f;
     List<MenuItem> tutti;
+    private Runnable polling;
+    private Handler pollingHandler=new Handler(Looper.getMainLooper());
     private File generaPdf() {
         try
         {
@@ -75,6 +83,71 @@ public class cassa extends AppCompatActivity {
         startActivity(Intent.createChooser(act,"Condividi/Salva scontrino"));
 
     }
+    private void avviaControllo()
+    {
+        polling= new Runnable() {
+            @Override
+            public void run() {
+                List<MenuItem> daControllare=new ArrayList<>();
+                for(MenuItem item:tutti)
+                {
+                    if(!item.getPronto())daControllare.add(item);
+                }
+                if(daControllare.isEmpty())
+                {
+                    paga.setEnabled(true);
+                    return;
+                }
+                inviaOrdini.richiediStatiMult(daControllare, new inviaOrdini.OnStatoMultiploListener() {
+                    @Override
+                    public void onRis(Map<String, Boolean> ris) {
+                        for(MenuItem item:tutti)
+                        {
+                            String chiave=item.getId()+"_"+item.getNome();
+                            if(ris.containsKey(chiave))item.setPronto(ris.get(chiave));
+                        }
+                        boolean tuttoPronto=true;
+                        for(MenuItem item:tutti)
+                        {
+                            if(!item.getPronto())
+                            {
+                                tuttoPronto=false;
+                                break;
+                            }
+                        }
+                        paga.setEnabled(tuttoPronto);
+                        if(!tuttoPronto)pollingHandler.postDelayed(polling,20000);
+                    }
+
+                    @Override
+                    public void onErrore(String mess) {
+                        pollingHandler.postDelayed(polling,20000);
+                    }
+                });
+            }
+        };
+        pollingHandler.post(polling);
+    }
+    private void inviaReset()
+    {
+        inviaOrdini.inviaPag(sala,tav,tutti,tot,new inviaOrdini.OnInviatoListener()
+        {
+            @Override
+            public void onSuccesso() {
+                Toast.makeText(cassa.this,"pagamento inviato",Toast.LENGTH_SHORT).show();
+                ordiniTutti.svuota();
+                ordiniTutti.svuota2();
+                Intent act=new Intent(cassa.this,MainActivity.class);
+                act.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(act);
+                finish();
+            }
+            @Override
+            public void onErrore(String messaggio) {
+                Toast.makeText(cassa.this,"pagamento non inviato",Toast.LENGTH_LONG).show();
+            }
+        });
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,23 +177,29 @@ public class cassa extends AppCompatActivity {
         {
             tot+=item.getPrezzo();
         }
-        totale.setText("TOTALE "+(tot+2.50*cli)+"€");
+        tot+=2.50f*cli;
+        totale.setText("TOTALE "+tot+"€");
+        paga.setEnabled(false);
+        avviaControllo();
         paga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new AlertDialog.Builder(cassa.this)
                 File pdf=generaPdf();
                 if(pdf!=null)condPdf(pdf);
-                inviaOrdini.inviaPag(sala,tav,tutti,tot,new inviaOrdini.OnInviatoListener()
-                {
-                    @Override
-                    public void onSuccesso() {
-                        Toast.makeText(cassa.this,"pagamento inviato",Toast.LENGTH_SHORT).show();
-                    }
-                    @Override
-                    public void onErrore(String messaggio) {
-                        Toast.makeText(cassa.this,"pagamento non inviato",Toast.LENGTH_LONG).show();
-                    }
-                });
+
+
+            }
+        });
+        dietro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent act=new Intent(cassa.this,cucinActivity.class);
+                act.putExtra("sala",sala);
+                act.putExtra("tavolo",tav);
+                act.putExtra("clienti",cli);
+                startActivity(act);
+                finish();
             }
         });
     }
