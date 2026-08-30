@@ -5,105 +5,105 @@
       "nome": "Caprese",
       "descrizione": "Mozzarella di bufala, pomodoro e basilico fresco",
       "prezzo": 5.5,
-      "immagine": "messi1"
+      "immagine": "caprese"
     },
     {
       "categoria": "Antipasti",
       "nome": "Bruschette miste",
       "descrizione": "Pomodoro fresco,olive e crema di funghi",
       "prezzo": 4.0,
-      "immagine": "messi1"
+      "immagine": "bruschette"
     },
     {
       "categoria": "Antipasti",
       "nome": "Tagliere di salumi",
       "descrizione": "Prosciutto crudo, salame, formaggi misti",
       "prezzo": 7.0,
-      "immagine": "messi1"
+      "immagine": "tagliere"
     },
     {
       "categoria": "Primi",
       "nome": "Pasta alla Norma",
       "descrizione": "Melenzane fritte,ricotta salata,pomodoro",
       "prezzo": 8.0,
-      "immagine": "messi1"
+      "immagine": "norma"
     },
     {
       "categoria": "Primi",
       "nome": "Risotto ai funghi",
       "descrizione": "Riso carnaroli, funghi porcini e parmigiano",
       "prezzo":9.5,
-      "immagine": "messi1"
+      "immagine": "risotto"
     },
     {
       "categoria": "Primi",
       "nome": "Spaghetti alle vongole",
       "descrizione": "Vongole veraci, aglio, prezzemolo e vino bianco",
       "prezzo": 10.0,
-      "immagine": "messi1"
+      "immagine": "spaghetti"
     },
     {
       "categoria": "Secondi",
       "nome": "Cotoletta alla milanese",
       "descrizione": "Vitello impanato e fritto e limone",
       "prezzo": 12.0,
-      "immagine": "messi1"
+      "immagine": "cotoletta"
     },
     {
       "categoria": "Secondi",
       "nome":"Tagliata di manzo",
       "descrizione": "Manzo tagliato, rucola e scaglie di grana",
       "prezzo":13.0,
-      "immagine": "messi1"
+      "immagine": "tagliata"
     },
     {
       "categoria": "Secondi",
       "nome": "Filetto di branzino",
       "descrizione": "Branzino al forno,patate e olive taggiasche",
       "prezzo": 13.0,
-      "immagine": "messi1"
+      "immagine": "filetto"
     },
     {
       "categoria": "Bevande",
       "nome": "Acqua naturale",
       "descrizione": "Bottiglia 75cl",
       "prezzo": 2,
-      "immagine": "messi1"
+      "immagine": "bottiglianat"
     },
     {
       "categoria": "Bevande",
       "nome": "Acqua frizzante",
       "descrizione": "Bottiglia 75cl",
       "prezzo": 2,
-      "immagine": "messi1"
+      "immagine": "bottiglianat"
     },
     {
       "categoria": "Bevande",
       "nome": "Coca cola",
       "descrizione": "Bottiglia 1.5L",
       "prezzo": 5,
-      "immagine": "messi1"
+      "immagine": "coca"
     },
     {
       "categoria": "Bevande",
       "nome": "Birra artigianale",
       "descrizione": "Birra chiara alla spina 40cl",
       "prezzo": 5,
-      "immagine": "messi1"
+      "immagine": "birra"
     },
     {
       "categoria": "Bevande",
       "nome": "Vino rosso della casa",
       "descrizione": "Calice, vino rosso siciliano",
       "prezzo": 4.5,
-      "immagine": "messi1"
+      "immagine": "rosso"
     },
     {
       "categoria": "Bevande",
       "nome": "Vino bianco della casa",
       "descrizione": "Calice, vino bianco siciliano",
       "prezzo": 4.5,
-      "immagine": "messi1"
+      "immagine": "bianco"
     }
   ]
 }
