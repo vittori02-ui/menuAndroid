@@ -44,19 +44,19 @@ public class cassa extends AppCompatActivity {
             android.graphics.Paint paint=new Paint();
             paint.setTextSize(25);
             int y=30;
-            canvas.drawText("SCONTRINO",100,y,paint);
-            y+=20;
+            canvas.drawText("SCONTRINO",300,y,paint);
+            y+=25;
             canvas.drawText("Sala: "+sala+" Tavolo: "+tav+" Clienti: "+cli,20,y,paint);
-            y+=30;
+            y+=40;
             for(MenuItem item:tutti)
             {
                 canvas.drawText(item.getNome() +" - "+item.getPrezzo()+" €",20,y,paint);
-                y+=20;
+                y+=25;
             }
-            y+=20;
+            y+=15;
             canvas.drawText("Coperto "+2.50*cli+"€",20,y,paint);
-            y+=20;
-            paint.setTextSize(20);
+            y+=25;
+            paint.setTextSize(30);
             canvas.drawText("Totale: "+tot+"€",20,y,paint);
             doc.finishPage(pagina);
             File dir=new File(getExternalFilesDir(null),"scontrini");
@@ -185,10 +185,23 @@ public class cassa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(cassa.this)
-                File pdf=generaPdf();
-                if(pdf!=null)condPdf(pdf);
+                        .setTitle("Riepilogo")
+                        .setMessage("Vuoi scaricare in PDF prima di chiudere l'ordine")
+                        .setPositiveButton("Si scarica",(dialog,which)->
+                        {
+                            File pdf=generaPdf();
+                            if(pdf!=null)condPdf(pdf);
+                            new Handler(Looper.getMainLooper()).postDelayed(()->{
+                                inviaReset();
+                            },7000);
 
-
+                        })
+                        .setNegativeButton("No, salta",(dialog,which)->
+                        {
+                            inviaReset();
+                        })
+                        .setCancelable(false)
+                        .show();
             }
         });
         dietro.setOnClickListener(new View.OnClickListener() {

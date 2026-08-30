@@ -79,4 +79,13 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
         if(x!=-1&&y!=-1)Collections.swap(carello,x,y);
         System.out.println("spostato");
     }
+    public void elimanElemento(int pos)
+    {
+        if(pos==RecyclerView.NO_POSITION)return;
+        MenuItem item=lista.get(pos);
+        ordiniTutti.getOrdini().remove(item);
+        ordiniTutti.getInviati().remove(item);
+        lista.remove(pos);
+        notifyItemRemoved(pos);
+    }
 }

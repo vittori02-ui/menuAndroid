@@ -2,13 +2,12 @@ package com.vittorioprivitera.menu;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
 public class dragDrop extends ItemTouchHelper.SimpleCallback
 {
     private cucinaAdapter adap;
     public dragDrop(cucinaAdapter adap)
     {
-        super(ItemTouchHelper.UP|ItemTouchHelper.DOWN,0);
+        super(ItemTouchHelper.UP|ItemTouchHelper.DOWN,ItemTouchHelper.RIGHT);
         this.adap=adap;
     }
 
@@ -24,6 +23,7 @@ public class dragDrop extends ItemTouchHelper.SimpleCallback
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,int dir)
     {
-
+        int pos=viewHolder.getAdapterPosition();
+        adap.elimanElemento(pos);
     }
 }

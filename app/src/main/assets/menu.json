@@ -62,6 +62,48 @@
       "descrizione": "Branzino al forno,patate e olive taggiasche",
       "prezzo": 13.0,
       "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Acqua naturale",
+      "descrizione": "Bottiglia 75cl",
+      "prezzo": 2,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Acqua frizzante",
+      "descrizione": "Bottiglia 75cl",
+      "prezzo": 2,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Coca cola",
+      "descrizione": "Bottiglia 1.5L",
+      "prezzo": 5,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Birra artigianale",
+      "descrizione": "Birra chiara alla spina 40cl",
+      "prezzo": 5,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Vino rosso della casa",
+      "descrizione": "Calice, vino rosso siciliano",
+      "prezzo": 4.5,
+      "immagine": "messi1"
+    },
+    {
+      "categoria": "Bevande",
+      "nome": "Vino bianco della casa",
+      "descrizione": "Calice, vino bianco siciliano",
+      "prezzo": 4.5,
+      "immagine": "messi1"
     }
   ]
 }
