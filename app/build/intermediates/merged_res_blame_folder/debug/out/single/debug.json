@@ -4,12 +4,8 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\xml\\file_paths.xml"
     },
     {
-        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/drawable_sfondo.jpg.flat",
-        "source": "com.vittorioprivitera.menu.app-main-35:/drawable/sfondo.jpg"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_bruschette.jpg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\bruschette.jpg"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xhdpi/ic_launcher_foreground.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -20,12 +16,12 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\birra.jpg"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\xml\\data_extraction_rules.xml"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_cucina.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_cucina.xml"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -40,32 +36,24 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\bottiglianat.jpg"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_tagliere.jpg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\tagliere.jpg"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_spaghetti.jpeg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\spaghetti.jpeg"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_spaghetti.jpeg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\spaghetti.jpeg"
-    },
-    {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_titolo_graf.xml.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\titolo_graf.xml"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\ic_launcher_foreground.xml"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_main.xml"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
@@ -76,24 +64,12 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-mdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_norma.jpeg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\norma.jpeg"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_item.xml.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\item.xml"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_caprese.jpeg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\caprese.jpeg"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\xml_backup_rules.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\xml\\backup_rules.xml"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_ic_launcher_background.xml.flat",
@@ -104,20 +80,16 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\coca.jpg"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_tagliata.jpeg.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\tagliata.jpeg"
-    },
-    {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_cassa.xml.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_cassa.xml"
-    },
-    {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/drawable/ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_filetto.jpeg.flat",
@@ -126,6 +98,10 @@
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_rosso.jpg.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\rosso.jpg"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxhdpi/ic_launcher_foreground.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xxhdpi_ic_launcher.webp.flat",
@@ -140,12 +116,8 @@
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\risotto.jpeg"
     },
     {
-        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/layout_activity_main.xml.flat",
-        "source": "com.vittorioprivitera.menu.app-main-35:/layout/activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-hdpi/ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-hdpi_ic_launcher.webp.flat",
@@ -158,5 +130,101 @@
     {
         "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_menu_activity.xml.flat",
         "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\menu_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_bruschette.jpg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\bruschette.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_sfondo.jpg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\sfondo.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_cucina.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_cucina.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_tagliere.jpg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\tagliere.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_norma.jpeg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\norma.jpeg"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_caprese.jpeg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\caprese.jpeg"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\drawable_tagliata.jpeg.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\drawable\\tagliata.jpeg"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\layout_activity_cassa.xml.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\layout\\activity_cassa.xml"
+    },
+    {
+        "merged": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-merged_res-33:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Vittorio Privitera\\.gradle\\daemon\\8.2\\com.vittorioprivitera.menu.app-main-35:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.vittorioprivitera.menu.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.vittorioprivitera.menu.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
     }
 ]

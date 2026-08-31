@@ -3,6 +3,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +20,7 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
     public static class OrdineViewHolder extends RecyclerView.ViewHolder
     {
         TextView nome,prezzo,desc,stato;
+        ImageView img;
         public OrdineViewHolder(@NonNull View itemView)
         {
             super(itemView);
@@ -26,6 +28,7 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
             prezzo=itemView.findViewById(R.id.prezzo);
             desc=itemView.findViewById(R.id.descrizione);
             stato=itemView.findViewById(R.id.pronto);
+            img=itemView.findViewById(R.id.img);
 
         }
     }
@@ -45,6 +48,7 @@ public class cucinaAdapter extends RecyclerView.Adapter<cucinaAdapter.OrdineView
         holder.nome.setText(item.getNome());
         holder.prezzo.setText(item.getPrezzo()+" €");
         holder.desc.setText(item.getDesc());
+        holder.img.setImageResource(item.getImg());
         if(item.getPronto())
         {
             holder.stato.setVisibility(View.VISIBLE);
