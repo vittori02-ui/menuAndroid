@@ -1,2 +1,6 @@
-# menuAndroid
+# **Menu**
+This is an app that simulates a menu for a restaurant, allowing you to choose the table, room, and number of people, then a menu with description, images, and price. Finally, there's a kitchen activity where you can drag dishes up and down according to the order they arrive and to the right to delete them, and a send button to send them to the kitchen and see the total, which can only be paid once everything has arrived, with the option to have a PDF with everything to be used at the register or a Google Sheet page.
 
+https://docs.google.com/spreadsheets/d/1j8t-t4bCTDechkKuC70biME7DtDhzCcQAFuAJPpdk6A/edit?gid=0#gid=0
+
+https://script.google.com/u/1/home/projects/1e4txFrX4Yq5J9f86ZtZ8Uih-RRCGE-R412W7qrEz9OyMABgQOv4Ezkuz/executions
