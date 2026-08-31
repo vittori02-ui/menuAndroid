@@ -65,6 +65,7 @@ layout item
 layout menu_activity
 layout titolo_graf
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string app_name
 style Base.Theme.Menu
