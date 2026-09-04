@@ -7,3 +7,7 @@ I did this project with Android Studio, a software I discovered while studying c
 https://docs.google.com/spreadsheets/d/1j8t-t4bCTDechkKuC70biME7DtDhzCcQAFuAJPpdk6A/edit?gid=0#gid=0
 
 https://script.google.com/u/1/home/projects/1e4txFrX4Yq5J9f86ZtZ8Uih-RRCGE-R412W7qrEz9OyMABgQOv4Ezkuz/executions
+![schermata iniziale](f1.jpg)
+![menu](f2.jpg)
+![cucina](f3.jpg)
+![conto](f4.jpg)
