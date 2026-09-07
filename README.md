@@ -4,6 +4,9 @@ the photos are on the icth project
 
 I did this project with Android Studio, a software I discovered while studying computer science at school. I wanted to do this project because I want to improve my computer skills by learning more about Java, and how did I come up with this? It's a project with great value and worth thinking about.
 
+Download instructions:
+Go to the itch address and download the APK. Download it to an android phone and follow the Play Store procedures for downloading external apps.
+
 https://docs.google.com/spreadsheets/d/1j8t-t4bCTDechkKuC70biME7DtDhzCcQAFuAJPpdk6A/edit?gid=0#gid=0
 
 https://script.google.com/u/1/home/projects/1e4txFrX4Yq5J9f86ZtZ8Uih-RRCGE-R412W7qrEz9OyMABgQOv4Ezkuz/executions
