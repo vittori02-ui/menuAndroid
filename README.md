@@ -9,7 +9,7 @@ Go to the itch address and download the APK. Download it to an android phone and
 
 https://docs.google.com/spreadsheets/d/1j8t-t4bCTDechkKuC70biME7DtDhzCcQAFuAJPpdk6A/edit?gid=0#gid=0
 
-https://script.google.com/u/1/home/projects/1e4txFrX4Yq5J9f86ZtZ8Uih-RRCGE-R412W7qrEz9OyMABgQOv4Ezkuz/executions
+https://script.google.com/d/1e4txFrX4Yq5J9f86ZtZ8Uih-RRCGE-R412W7qrEz9OyMABgQOv4Ezkuz/edit?usp=sharing
 ![schermata iniziale](f1.jpg)
 ![menu](f2.jpg)
 ![cucina](f3.jpg)
